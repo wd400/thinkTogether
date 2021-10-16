@@ -1,8 +1,14 @@
 import colors from 'vuetify/es5/util/colors'
 
+
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+
+
+
+  
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -20,6 +26,10 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
+  },
+
+  static: {
+    prefix: true
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -86,8 +96,34 @@ export default {
           new_password:'New password',
           current_password:'Current password',
           change_mail: 'Change mail',
-          new_mail:'New mail'
-
+          new_mail:'New mail',
+          user:'User',
+          organic_layout:'Organic Layout',
+          cut:'Cut',
+          copy:'Copy',
+          paste:'Paste',
+          delete:'Delete',
+          undo:'Undo',
+          redo:'Redo',
+          print:'Print',
+          show:'Show',
+          zoomIn:'Zoom In',
+          zoomOut:'Zoom Out',
+          actualSize: 'Actual size',
+          fit:'Fit',
+          saved:'Saved',
+          reason:'Reason',
+          details:'Details',
+          advertising:'Advertising',
+          spam:'SPAM',
+          other:'Other',
+          suggestion:'Suggestion',
+          suggestions:'Suggestions',
+          amazing:'Amazing',
+          useless:'Useless',
+          author:'Author',
+          anonymous:'Anonymous'
+         
         },
       }
     }
@@ -119,6 +155,12 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extend(config) {
+      config.module.rules.push({
+        test: /\.txt$/,
+        loader: "raw-loader"
+      });
+    }
   },
 
   auth: {

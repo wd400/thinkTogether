@@ -1,0 +1,455 @@
+<html>
+<head>
+	<!--
+ 	<link rel="stylesheet" href="css/wordpress.css" type="text/css" media="screen" /> -->
+<!--	<style type="text/css" media="screen">
+		#page { background: url("images/draw/drawbg.jpg") repeat-y top; border: none; }
+	</style>
+	 -->
+	<script type="text/javascript">
+		var mxBasePath = '../../src';
+		/*
+		var urlParams = (function(url)
+		{
+			var result = new Object();
+			var params = window.location.search.slice(1).split('&');
+			
+			for (var i = 0; i < params.length; i++)
+			{
+				idx = params[i].indexOf('=');
+				
+				if (idx > 0)
+				{
+					result[params[i].substring(0, idx)] = params[i].substring(idx + 1);
+				}
+			}
+			
+			return result;
+		})(window.location.href);
+		
+		
+		var mxLanguage = urlParams['lang'];
+		*/
+		
+	</script>
+	<script type="text/javascript" src="../../src/js/mxClient.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript">
+		// Program starts here. The document.onLoad executes the
+		// createEditor function with a given configuration.
+		// In the config file, the mxEditor.onInit method is
+		// overridden to invoke this global function as the
+		// last step in the editor constructor.
+		function onInit(editor)
+		{
+			// Enables rotation handle
+			mxVertexHandler.prototype.rotationEnabled = false;
+
+			// Enables guides
+			mxGraphHandler.prototype.guidesEnabled = true;
+			
+		    // Alt disables guides
+		    mxGuide.prototype.isEnabledForEvent = function(evt)
+		    {
+		    	return !mxEvent.isAltDown(evt);
+		    };
+		    
+		    
+		//     editor.graph.setEnabled(false);
+		     
+		     
+		//  editor.graph.setDragEnabled(false);
+		    
+		    // add outline
+		    var outline = document.getElementById('outlineContainer');
+		    new mxOutline(editor.graph, outline);
+		//	editor.showOutline();
+			
+
+//change menu
+editor.graph.popupMenuHandler.factoryMethod = function(menu, cell, evt)
+{
+  if(cell.edge||cell.vertex){
+      menu.addItem('Change color', null, function()
+      { 
+      
+ //     editor.execute('properties', cell);
+ //     mxCellTracker(graph, color, funct);
+               editor.execute('fillColor', cell);
+      
+      })
+
+  }
+
+}
+
+
+//editor.graph.autoSizeCells=true;
+
+//auto resize
+	editor.graph.autoSizeCellsOnAdd = true;
+
+
+var cellLabelChanged = editor.graph.cellLabelChanged;
+				editor.graph.cellLabelChanged = function(cell, newValue, autoSize)
+				{	
+		//	  alert(autoSize);
+				autoSize=true;
+					cellLabelChanged.apply(this, arguments);
+						// editor.graph.updateCellSize(cell, true);
+				};
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			
+			// Enables snapping waypoints to terminals
+			mxEdgeHandler.prototype.snapToTerminals = true;
+			
+			// Defines an icon for creating new connections in the connection handler.
+			// This will automatically disable the highlighting of the source vertex.
+			mxConnectionHandler.prototype.connectImage = new mxImage('/images/connector.gif', 16, 16);
+			
+			// Enables connections in the graph and disables
+			// reset of zoom and translate on root change
+			// (ie. switch between XML and graphical mode).
+			editor.graph.setConnectable(true);
+
+			// Clones the source if new connection has no target
+			editor.graph.connectionHandler.setCreateTarget(true);
+			
+
+
+			// Updates the title if the root changes
+			var title = document.getElementById('title');
+			
+			
+			
+			
+
+
+
+    var first = new mxFastOrganicLayout(editor.graph);
+   // alert(first);
+    first.forceConstant=150;
+    first.minDistanceLimit=5;
+    first.maxIterations=2000;
+    
+    				mxEvent.addListener(document.getElementById("OrganicLayout"), 'click', function(evt)
+				{
+				
+				first.execute(editor.graph.getDefaultParent());
+				
+				});
+
+    /*
+    var second = new mxParallelEdgeLayout(editor.graph);
+    second.spacing = 20;
+    
+    
+    
+    mxEvent.addListener(document.getElementById("ParallelEdge"), 'click', function(evt)
+				{
+				
+				second.execute(editor.graph.getDefaultParent());
+				
+				});
+
+*/
+
+
+
+    mxEvent.addListener(document.getElementById("debug"), 'click', function(evt)
+				{
+				
+				
+				var model = editor.graph.getModel();
+				var cell=model.getCell(3);
+			//	cell=editor.graph.getDefaultParent();
+				console.log(cell);
+				if (cell!=null){
+				
+				editor.graph.clearSelection();
+				editor.graph.setSelectionCell(cell);
+				editor.graph.scrollCellToVisible(cell,true);
+				// editor.graph.view.refresh(cell);
+				} else {
+				alert("Cell deleted");
+				}
+				
+				});
+
+
+
+
+
+
+    
+    
+  //  var layout = new mxCompositeLayout(editor.graph, [first, second], first);
+  //  layout.execute(editor.graph.getDefaultParent());
+
+
+
+
+
+
+
+
+
+
+
+
+			/*
+			
+			if (title != null)
+			{
+				var f = function(sender)
+				{
+					title.innerHTML = 'mxDraw - ' + sender.getTitle();
+				};
+				
+				editor.addListener(mxEvent.ROOT, f);
+				f(editor);
+			}
+			
+			
+			*/
+			
+			
+		    // Changes the zoom on mouseWheel events
+		    mxEvent.addMouseWheelListener(function (evt, up)
+		    {
+			    if (!mxEvent.isConsumed(evt))
+			    {
+			    	if (up)
+					{
+			    		editor.execute('zoomIn');
+					}
+					else
+					{
+						editor.execute('zoomOut');
+					}
+					
+					mxEvent.consume(evt);
+			    }
+		    });
+
+			// Defines a new action to switch between
+			// XML and graphical display
+			/*
+			var textNode = document.getElementById('xml');
+			var sourceInput = document.getElementById('source');
+			sourceInput.checked = false;
+			*/
+			var graphNode = editor.graph.container;
+			
+			
+
+			var funct = function(editor)
+			{
+			/*
+				if (sourceInput.checked)
+				{
+					graphNode.style.display = 'none';
+					textNode.style.display = 'inline';
+					
+					var enc = new mxCodec();
+					var node = enc.encode(editor.graph.getModel());
+					
+					textNode.value = mxUtils.getPrettyXml(node);
+					textNode.originalValue = textNode.value;
+					textNode.focus();
+				}
+				else
+				*/
+				{
+					graphNode.style.display = '';
+					
+					if (textNode.value != textNode.originalValue)
+					{
+						var doc = mxUtils.parseXml(textNode.value);
+						var dec = new mxCodec(doc);
+						dec.decode(doc.documentElement, editor.graph.getModel());
+					}
+
+					textNode.originalValue = null;
+					
+					// Makes sure nothing is selected in IE
+					
+					if (mxClient.IS_IE)
+					{
+						mxUtils.clearSelection();
+					}
+
+					textNode.style.display = 'none';
+
+					// Moves the focus back to the graph
+					editor.graph.container.focus();
+				}
+			};
+			/*
+			editor.addAction('switchView', funct);
+			
+			// Defines a new action to switch between
+			// XML and graphical display
+			mxEvent.addListener(sourceInput, 'click', function()
+			{
+				editor.execute('switchView');
+			});
+			*/
+
+			// Create select actions in page
+			var node = document.getElementById('mainActions');
+			//'group', 'ungroup', 
+			var buttons = ['cut', 'copy', 'paste', 'delete', 'undo', 'redo', 'print', 'show'];
+			
+			// Only adds image and SVG export if backend is available
+			// NOTE: The old image export in mxEditor is not used, the urlImage is used for the new export.
+			
+						for (var i = 0; i < buttons.length; i++)
+			{
+				var button = document.createElement('button');
+				mxUtils.write(button, mxResources.get(buttons[i]));
+			
+				var factory = function(name)
+				{
+					return function()
+					{
+						editor.execute(name);
+					};
+				};
+			
+				mxEvent.addListener(button, 'click', factory(buttons[i]));
+				node.appendChild(button);
+			}
+			
+
+			// Create select actions in page
+			/*
+			var node = document.getElementById('selectActions');
+			mxUtils.write(node, 'Select: ');
+			mxUtils.linkAction(node, 'All', editor, 'selectAll');
+			mxUtils.write(node, ', ');
+			mxUtils.linkAction(node, 'None', editor, 'selectNone');
+			mxUtils.write(node, ', ');
+			mxUtils.linkAction(node, 'Vertices', editor, 'selectVertices');
+			mxUtils.write(node, ', ');
+			mxUtils.linkAction(node, 'Edges', editor, 'selectEdges');
+			*/
+
+			// Create select actions in page
+			var node = document.getElementById('zoomActions');
+			mxUtils.write(node, 'Zoom: ');
+			mxUtils.linkAction(node, 'In', editor, 'zoomIn');
+			mxUtils.write(node, ', ');
+			mxUtils.linkAction(node, 'Out', editor, 'zoomOut');
+			mxUtils.write(node, ', ');
+			mxUtils.linkAction(node, 'Actual', editor, 'actualSize');
+			mxUtils.write(node, ', ');
+			mxUtils.linkAction(node, 'Fit', editor, 'fit');
+			
+	
+		}
+
+	//	window.onbeforeunload = function() { return mxResources.get('changesLost'); };
+	</script>
+</head>
+<body onload="createEditor('config/diagrameditor.xml');">
+	<div id="page">
+		<div id="mainActions"
+			style="width:100%;padding-top:8px;padding-left:24px;padding-bottom:8px;">
+			<!--
+			<input id="ParallelEdge"
+       type="button"
+       value="Parallel Edge"> -->
+       
+        <input id="OrganicLayout"
+       type="button"
+       value="Organic Layout">
+       
+        <input id="debug"
+       type="button"
+       value="debug">
+			
+		</div>
+		
+		<div id="selectActions" style="width:100%;padding-left:54px;padding-bottom:4px;">
+			
+		</div>
+		
+         
+		<table border="0" width="730px">
+
+			<tr>
+			
+			
+			
+				<td id="toolbar" style="width:16px;padding-left:20px;" valign="top">
+		
+								<!-- Toolbar Here -->				
+				</td>
+				
+
+				
+				<td valign="top" style="border-width:1px;border-style:solid;border-color:black;">
+				
+				
+				
+					<div id="outlineContainer"
+         style="z-index:1;position:absolute;overflow:hidden;width:160px;height:120px;background:transparent;border-style:solid;border-color:lightgray;">	</div>
+			
+				
+				
+					<div id="graph" tabindex="-1" style="position:relative;height:480px;width:684px;overflow:hidden;cursor:default;">
+						<!-- Graph Here -->
+						<center id="splash" style="padding-top:230px;">
+							<img src="images/loading.gif">
+						</center>
+
+
+
+
+
+
+		
+
+					</div>
+					
+					
+
+<!--
+
+					<textarea id="xml" style="height:480px;width:684px;display:none;border-style:none;"></textarea>
+					-->
+				</td>
+			</tr>
+			
+		     
+		</table>
+		
+<!--
+
+		<span >
+			<input id="source" type="checkbox"/>Source
+		</span>
+		-->
+    
+<div id="zoomActions" >
+		</div>
+
+		
+		
+									
+
+	</div>
+
+</body>
+</html>

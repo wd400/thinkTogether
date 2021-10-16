@@ -21,9 +21,7 @@ export default {
  registerUser(registerinfo){
      
     this.$axios.post('/register',registerinfo).then(response => { 
-
-        alert("ok");
-        alert(response);
+      this.$notifier.showMessage({ content:this.$t('done'), color: 'info' })
         /*
 	 this.$stor.dispatch('snackbar/setSnackbar',{text:$t('registered')})
       this.$router.push('/')

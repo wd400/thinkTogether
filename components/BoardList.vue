@@ -7,17 +7,16 @@
     tile
   >
  
-    <v-list dense>
+    <v-list flat>
                   <v-list-item-title class="text-h6" >
             {{$t('boards')}}
             </v-list-item-title>
       <v-list-item-group
-        v-model="selectedItem"
         color="primary"
       >
 
-
-          <v-container v-if="user=='me'"
+<div v-if="user=='me'">
+          <v-container 
           
                     v-for="(item, i) in boards"
           :key="i"
@@ -95,22 +94,20 @@
  <v-divider inset/>
  
           </v-container>
-
-
-
-
-
+</div>
+<div v-else>
         <v-list-item
           v-for="(item, i) in boards"
           :key="i"
 
-          v-else
+          
         >
         <v-list-item-content @click="gotoBoard(item.boardid)" >
             <v-list-item-title v-text="item.title"></v-list-item-title>
             <v-list-item-subtitle v-text="item.description"></v-list-item-subtitle>
 </v-list-item-content>
         </v-list-item>
+</div>
 
 
 
@@ -201,7 +198,6 @@ export default{
    fetchOnServer:true,
     data() {
       return {
-        selectedItem: 0,
         boards: [],
         newBoardTemplate:false,
         newTitle:'',
@@ -213,7 +209,6 @@ export default{
 
 props:{
     user:{
-        type:String,
         required:true
     },
 
@@ -315,6 +310,9 @@ this.closeNewBoard()
       async fetch() {
  await   this.$axios.get('/boards/'+this.user).then(response => { 
 
+console.log(response.status)
+
+
 this.boards=response.data;
 
    //     alert(response.data);
@@ -325,7 +323,12 @@ this.boards=response.data;
 }
 )
 .catch(error => {
+ if(error.response.status==301){
+   this.$router.push('/user/me')
+} else {
+
       this.$notifier.showMessage({ content:this.$t('error'), color: 'error' })
+}
 
 });
      }

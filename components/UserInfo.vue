@@ -18,7 +18,6 @@
 export default {
 props:{
     user:{
-        type:String,
         required:true
     },
 
