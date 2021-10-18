@@ -500,8 +500,10 @@ if (typeof(mxImageBasePath) != 'undefined' && mxImageBasePath.length > 0)
 }
 else
 {
-	mxClient.imageBasePath = mxClient.basePath + '/images';	
+	//mxClient.imageBasePath = mxClient.basePath + '/images';	
+	mxClient.imageBasePath = '/images';	
 }
+
 
 /**
  * Variable: language

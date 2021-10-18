@@ -1,6 +1,6 @@
 <template>
     <v-container>
-        <h1>{{ $t("Login") }}</h1>
+        <h1>{{ $t("login") }}</h1>
         <UserAuthForm buttonText="Login" :submitForm="loginUser"/>
     </v-container>
 </template>

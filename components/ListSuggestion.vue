@@ -34,19 +34,24 @@
           </v-btn>
         </v-list-item-action>
         </v-list-item>
+
+
+
 </div>
 
 
       </v-list-item-group>
+        <h5 v-if="suggestions.length==0">{{$t('no_suggestions')}}</h5>
+
     </v-list>
 
 
 
- <v-divider inset></v-divider>
+ <v-divider v-if="showReport|| selected!=null " ></v-divider>
 
           <div>
      <v-btn x-small
-      @click="showReport=true" v-if="!showReport" 
+      @click="showReport=true" v-if="!showReport &&selected!=null" 
     >
       <v-icon>mdi-flag</v-icon>
     </v-btn>
@@ -134,7 +139,13 @@ props:{
             this.suggestions.splice(this.selected, 1); 
 
               this.showReport=false
-              this.selected=Math.min(this.selected,this.suggestions.length-1)
+              if (this.suggestions.length==0){
+this.selected=null
+this.gotoCell.function(null)
+              } else{
+              this.selected=Math.max(0,Math.min(this.selected,this.suggestions.length-1))
+              this.gotoCell.function(this.suggestions[this.selected].cellid)
+              }
               
               
 
@@ -158,8 +169,10 @@ this.suggestionReported()
 
       }
 },
-      async fetch() {
- await   this.$axios.get('/viewsuggestions/'+this.boardId).then(response => { 
+     
+     mounted(){
+    //     alert(this.gotoCell)
+    this.$axios.get('/viewsuggestions/'+this.boardId).then(response => { 
 
 
 this.suggestions=response.data;
@@ -177,9 +190,7 @@ this.suggestions=response.data;
       this.$notifier.showMessage({ content:this.$t('error'), color: 'error' })
 
 });
-     },
-     mounted(){
-    //     alert(this.gotoCell)
+
      }
      
 }

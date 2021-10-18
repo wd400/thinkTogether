@@ -34,7 +34,7 @@
     <!--
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn
-        icon
+        
         @click.stop="miniVariant = !miniVariant"
       >
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
@@ -42,13 +42,13 @@
 
 
       <v-btn
-        icon
+        
         @click.stop="clipped = !clipped"
       >
         <v-icon>mdi-application</v-icon>
       </v-btn>
       <v-btn
-        icon
+        
         @click.stop="fixed = !fixed"
       >
      
@@ -69,7 +69,7 @@
 <div v-if="$auth.loggedIn">
 
 
-      <v-btn icon
+      <v-btn 
         @click="gotoSettings()"
       >
         <v-icon>mdi-account-cog</v-icon>
@@ -84,7 +84,7 @@
 </div>
 <!--
       <v-btn
-        icon
+        
         @click.stop="rightDrawer = !rightDrawer"
       >
         <v-icon>mdi-menu</v-icon>

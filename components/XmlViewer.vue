@@ -1,8 +1,8 @@
 <template>
 <body   >
-	<div id="page">
+	<div id="page" style="background-color:white;">
 		<div id="mainActions"
-			style="width:100%;padding-top:8px;padding-left:24px;padding-bottom:8px;">
+			style="width:100%;padding-top:8px;padding-bottom:8px;padding-left:16px;">
 			<!--
 			<input id="ParallelEdge"
        type="button"
@@ -44,18 +44,16 @@
 			
 		</div>
 		
-		<div id="selectActions" style="width:100%;padding-left:54px;padding-bottom:4px;">
-			
-		</div>
+
 		
          
-		<table border="0" width="730px">
+		<table border="0" width="width:100%">
 
 			<tr>
 			
 			
 			
-				<td id="toolbar" style="width:16px;padding-left:20px;" valign="top">
+				<td id="toolbar" style="width:16px;" valign="top">
 		
 								<!-- Toolbar Here -->				
 				</td>
@@ -71,7 +69,7 @@
 			
 				
 				
-					<div id="graph" tabindex="-1" style="position:relative;height:480px;width:684px;overflow:hidden;cursor:default;">
+					<div id="graph" tabindex="-1" style="position:relative;height:580px;width:784px;overflow:hidden;cursor:default;">
 						<!-- Graph Here -->
 						<center id="splash" style="padding-top:230px;">
 							<img src="/images/loading.gif">
@@ -106,7 +104,7 @@
 		-->
     
 
-
+<div style="padding-left:16px;">
 
 	           <v-btn x-small id="zoomIn"
        >{{$t('zoomIn')}}</v-btn>
@@ -120,18 +118,19 @@
 	   	           <v-btn x-small id="fit"
        >{{$t('fit')}}</v-btn>
 	   
-<v-btn v-if="editmode" id="saveid"  icon >
+
+<v-btn v-if="editmode" id="saveid"   >
       <v-icon>mdi-content-save</v-icon>
     </v-btn>
-
-
+	</div>
 
 	</div>
 
+	
 	<div :gotoCell="gotoCell" v-if="showSuggestion">
 <v-btn
       @click="showSuggestion=false" 
-   icon >
+    >
       <v-icon>mdi-close</v-icon>
     </v-btn>
 
@@ -142,7 +141,7 @@
 <div v-if="showReport">
 <v-btn
       @click="showReport=false" 
-    icon>
+    >
       <v-icon>mdi-close</v-icon>
     </v-btn>
 

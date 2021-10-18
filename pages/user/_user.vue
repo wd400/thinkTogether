@@ -1,9 +1,11 @@
 <template>
 
-<v-row align="stretch">
+<v-row align="baseline">
 <BoardList :user="userid" />
 <v-spacer/>
+<MyInvitations v-if="userid=='me'"/>
 <div>
+  
 <UserInfo :user="userid" />
 
 
@@ -25,6 +27,7 @@
 
 
 </div>
+
 </v-row>
 
 
@@ -33,13 +36,19 @@
 
 <script>
 import UserAuthForm from '@/components/UserAuthForm.vue'
+import MyInvitations from '~/components/MyInvitations.vue'
 export default {
     components: {
-        UserAuthForm
+        UserAuthForm,
+        MyInvitations
     },
     created() {
     if (this.$route.params.user=="me"){
-        this.userid=this.$route.params.user
+      if (this.$auth.loggedIn){
+        this.userid="me"
+      } else {
+        this.$router.push('/login')
+      }
     } else{
      var tmpUserId = Number(this.$route.params.user)
      if (isNaN(tmpUserId)) {

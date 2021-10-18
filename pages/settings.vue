@@ -169,6 +169,7 @@ this._updateUserMetadata('changemail',this.newMail)
       this.$router.push('/')
 */
       this.$notifier.showMessage({ content:this.$t('done'), color: 'info' })
+      this.$auth.logout()
       this.$router.push('/')
 
 

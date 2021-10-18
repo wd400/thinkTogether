@@ -122,7 +122,11 @@ export default {
           amazing:'Amazing',
           useless:'Useless',
           author:'Author',
-          anonymous:'Anonymous'
+          anonymous:'Anonymous',
+          my_invitations:'My invitations',
+          invited:'Invited',
+          new_pseudo:'New pseudo',
+          no_suggestions:'No suggestions'
          
         },
       }

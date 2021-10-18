@@ -32,8 +32,9 @@ props:{
     },
 
 
-  async fetch() {
- await   this.$axios.get('/getuserinfo/'+this.user).then(response => { 
+
+     mounted(){
+       this.$axios.get('/getuserinfo/'+this.user).then(response => { 
 
 this.pseudo=response.data.pseudo;
 this.score=response.data.score;
@@ -55,11 +56,6 @@ this.pseudo=this.$t('user404')
       this.$notifier.showMessage({ content:this.$t('error'), color: 'error' })
 
 });
-
-
-
-
-         this.$auth.strategy.token.get()
      }
 
 }

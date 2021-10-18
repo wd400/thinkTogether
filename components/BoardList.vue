@@ -7,7 +7,9 @@
     tile
   >
  
-    <v-list flat>
+    <v-list 
+    
+  >
                   <v-list-item-title class="text-h6" >
             {{$t('boards')}}
             </v-list-item-title>
@@ -307,8 +309,10 @@ this.closeNewBoard()
 
 }
   },
-      async fetch() {
- await   this.$axios.get('/boards/'+this.user).then(response => { 
+    
+
+     mounted(){
+    this.$axios.get('/boards/'+this.user).then(response => { 
 
 console.log(response.status)
 
@@ -331,6 +335,7 @@ this.boards=response.data;
 }
 
 });
+
      }
 }
 </script>

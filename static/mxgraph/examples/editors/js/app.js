@@ -17,7 +17,10 @@
 	gotocell.function=function(id)
 	{
 
-	
+	if (id==null){
+		editor.graph.clearSelection();
+		return
+	}
 	var model = editor.graph.getModel();
 	var cell=model.getCell(id);
 //	cell=editor.graph.getDefaultParent();

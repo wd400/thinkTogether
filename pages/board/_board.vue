@@ -1,10 +1,18 @@
 <template>
 
-<v-row >
+<v-row align="stretch">
 
-    <v-col cols=2>
+
+
+
+    <client-only>
+    <XmlViewer :gotoCell="gotoCell" :boardId="boardId" :editmode="owned" :xml="xml" v-if="xml!=null && owned!=null"/>
+    </client-only>
+
+<v-col>
+    <v-col >
                   <v-btn x-small
-   class="ma-2" 
+  
    @click="gotoUser()"  v-if="! owned && userid!=null" >
    {{$t('user')}}
             </v-btn>
@@ -32,19 +40,18 @@
     </v-btn>
 
     <Report :callback="boardReported()" reportType="board" :id="boardId" />
+
+
 	</div>
-
-
     </v-col>
-
-
-
-
-
-    <client-only>
-    <XmlViewer :gotoCell="gotoCell" :boardId="boardId" :editmode="owned" :xml="xml" v-if="xml!=null && owned!=null"/>
-    </client-only>
+    <br>
      <ListSuggestion :gotoCell="gotoCell" :boardId="boardId" v-if="owned" />
+<br>
+    <InvitedList :boardid="boardId" v-if="owned" />
+</v-col>
+
+
+
 
 <!--<Suggestions v-if="!isauthor" :boardid="boardid" />-->
 </v-row>
@@ -85,8 +92,10 @@ export default {
 
     }
   },
-        async fetch() {
- await this.$axios.get('/board/'+this.boardId).then(response => { 
+         
+     mounted(){
+
+  this.$axios.get('/board/'+this.boardId).then(response => { 
 
 this.owned=response.data.owned;
 //this.owned=false;
@@ -107,8 +116,6 @@ this.xml=response.data.xml;
       this.$notifier.showMessage({ content:this.$t('error'), color: 'error' })
 
 });
-     },
-     mounted(){
 
 
      },
