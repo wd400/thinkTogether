@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/fr/settings", {data:[{}],fetch:{},mutations:[]});
