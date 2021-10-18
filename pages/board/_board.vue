@@ -27,7 +27,7 @@
      
      <!-- report board -->
      <v-btn x-small
-      @click="showReport=true" v-if="! owned && !showReport && $auth.loggedIn" 
+      @click="showReport=true" v-if="! owned && !showReport && $auth.loggedIn && loaded" 
     >
       <v-icon>mdi-flag</v-icon>
     </v-btn>
@@ -89,6 +89,7 @@ export default {
       boardid:null,
       showReport:false,
       gotoCell:{},
+      loaded:false
 
     }
   },
@@ -103,6 +104,7 @@ this.userid=response.data.userid;
 this.title=response.data.title;
 this.description=response.data.description;
 this.xml=response.data.xml;
+this.loaded=true;
 //this.xml='<mxGraphModel>  <root>    <Diagram label="My Diagram" href="http://www.jgraph.com/" id="0">      <mxCell />    </Diagram>    <Layer label="Default Layer" id="1">      <mxCell parent="0" />    </Layer>    <Rect label="Rectangle" href="" id="2">      <mxCell vertex="1" parent="1">        <mxGeometry x="440" y="50" width="80" height="40" as="geometry" />      </mxCell>    </Rect>    <Rect label="Rectangle" href="" id="3">      <mxCell vertex="1" parent="1">        <mxGeometry x="280" y="190" width="80" height="40" as="geometry" />      </mxCell>    </Rect>    <Connector label="" href="" id="4">      <mxCell edge="1" parent="1" source="2" target="3">        <mxGeometry relative="1" as="geometry" />      </mxCell>    </Connector>  </root></mxGraphModel>'
 
    //     alert(response.data);
@@ -113,6 +115,7 @@ this.xml=response.data.xml;
 }
 )
 .catch(error => {
+
       this.$notifier.showMessage({ content:this.$t('error'), color: 'error' })
 
 });

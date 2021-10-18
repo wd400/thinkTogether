@@ -80,6 +80,7 @@
         <v-checkbox
       v-model="item.anonym"
       :label="$t('anonym')"
+      :disabled="!item.public"
       v-on:change="changeAnonym(item)"
     ></v-checkbox>
   </v-row>
@@ -100,9 +101,7 @@
 <div v-else>
         <v-list-item
           v-for="(item, i) in boards"
-          :key="i"
-
-          
+          :key="i"  
         >
         <v-list-item-content @click="gotoBoard(item.boardid)" >
             <v-list-item-title v-text="item.title"></v-list-item-title>

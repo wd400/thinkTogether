@@ -6,9 +6,9 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
-
-
-  
+  router: {
+    base: '/thinkTogether/'
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -126,7 +126,16 @@ export default {
           my_invitations:'My invitations',
           invited:'Invited',
           new_pseudo:'New pseudo',
-          no_suggestions:'No suggestions'
+          no_suggestions:'No suggestions',
+          search:'Search',
+          app_description:'A convenient platform for sharing thought processes in the form of graphs',
+          use_cases:'For example, you can put your:',
+          general_reflections:'general reflections',
+          dilemmas:'dilemmas',
+          action_process:'process leading to (in)action',
+          personnal_problems:'personal problems (beware of anonymity)',
+          explore_msg:'Explore thought processes of others and make suggestions to earn points!'
+
          
         },
       }
@@ -175,7 +184,8 @@ export default {
           property: 'token',
           global: true,
            required: true,
-           type: ''
+           type: '',
+           maxAge: 60*60*2
         },
         user: {
           property: 'user',
@@ -184,6 +194,7 @@ export default {
         endpoints: {
           login: { url: '/login', method: 'post' },
           logout: { url: '/revoketoken', method: 'get' },
+          refresh:{url:'/refreshtoken',method:'get'},
          user:false
         }
       }
