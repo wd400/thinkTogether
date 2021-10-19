@@ -16,11 +16,19 @@
           <p>-{{$t('personnal_problems')}}</p>
            <br>
            {{$t('explore_msg')}}
+           <br>
+           
 
 
           <hr class="my-3">
-
-
+          <p>{{$t('long_term')}}</p>
+          <p>{{$t('data_access_msg')}} 
+<a
+              href="https://github.com/wd400/thinkTogether/releases/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >https://github.com/wd400/thinkTogether/releases/</a> ({{$t('updated_monthly')}})
+</p>
         </v-card-text>
 
       </v-card>

@@ -12,8 +12,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - thinktogether',
-    title: 'thinktogether',
+    titleTemplate: '%s',
+    title: 'thinkTogether',
     htmlAttrs: {
       lang: 'en'
     },
@@ -59,7 +59,7 @@ export default {
   ],
 
   i18n: {
-    locales: ['en', 'fr', 'es'],
+    locales: ['en'],
     defaultLocale: 'en',
     vueI18n: {
       fallbackLocale: 'en',
@@ -134,7 +134,10 @@ export default {
           dilemmas:'dilemmas',
           action_process:'process leading to (in)action',
           personnal_problems:'personal problems (beware of anonymity)',
-          explore_msg:'Explore thought processes of others and make suggestions to earn points!'
+          explore_msg:'Explore thought processes of others and make suggestions to earn points!',
+          long_term:'The long-term idea is to develop a suggestion assistant for new ideas.',
+          data_access_msg:'The PUBLIC annotated dataset will be easily accessible for free download for any non-commercial use here:',
+          updated_monthly:'updated monthly'
 
          
         },
