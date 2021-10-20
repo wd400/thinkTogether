@@ -137,7 +137,8 @@ export default {
           explore_msg:'Explore thought processes of others and make suggestions to earn points!',
           long_term:'The long-term idea is to develop a suggestion assistant for new ideas.',
           data_access_msg:'The PUBLIC annotated dataset will be easily accessible for free download for any non-commercial use here:',
-          updated_monthly:'updated monthly'
+          updated_monthly:'updated monthly',
+          already_used:'The nickname or email address is already in use',
 
          
         },

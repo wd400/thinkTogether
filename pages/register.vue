@@ -31,7 +31,13 @@ export default {
 
 )
 .catch(error => {
+
+    if(error.response.status==405){
+     this.$notifier.showMessage({ content:this.$t('already_used'), color: 'error' })
+} else{
+
       this.$notifier.showMessage({ content:this.$t('error'), color: 'error' })
+}
 
 });
 
