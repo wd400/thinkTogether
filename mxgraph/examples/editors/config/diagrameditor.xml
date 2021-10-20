@@ -1,5 +1,5 @@
 <mxEditor defaultGroup="group" defaultEdge="connector">
-	<include name="/mxgraph/examples/editors/config/editor-commons.xml"/>
+	<include name="mxgraph/examples/editors/config/editor-commons.xml"/>
 	<add as="onInit"><![CDATA[
 		function ()
 		{
@@ -349,7 +349,7 @@
 		</mxGraphModel>
 	</mxGraph>
 	<mxDefaultToolbar as="toolbar">
-		<add as="connect" mode="connect" icon="/images/connect.gif"><![CDATA[
+		<add as="connect" mode="connect" icon="images/connect.gif"><![CDATA[
 			function (editor)
 			{
 				if (editor.defaultEdge != null)
@@ -380,8 +380,8 @@
 		-->
 		<br/><br/>
 	<!--	<add as="Text" template="text" icon="images/text.gif"/> -->
-		<add as="Container" template="container" icon="/images/swimlane.gif"/>
-		<add as="Rectangle" template="rectangle" icon="/images/rectangle.gif"/>
+		<add as="Container" template="container" icon="images/swimlane.gif"/>
+		<add as="Rectangle" template="rectangle" icon="images/rectangle.gif"/>
 <!--		<add as="Rounded" template="rounded" icon="images/rounded.gif"/> -->
 <!--		<add as="Ellipse" template="shape" style="ellipse" icon="images/ellipse.gif"/> -->
 <!--		<add as="Double Ellipse" template="shape" style="doubleEllipse" icon="images/doubleellipse.gif"/> -->
