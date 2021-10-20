@@ -147,7 +147,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'http://13.36.53.113:5000/'
+    baseURL: 'https://thinktogether.duckdns.org/'
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
