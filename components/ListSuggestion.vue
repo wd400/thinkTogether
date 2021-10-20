@@ -30,7 +30,7 @@
 </v-list-item-content>
         <v-list-item-action v-if="item.author!=null">
           <v-btn  @click="gotoUser(item.author)"  icon>
-            <v-icon >mdi-account-question</v-icon>
+            <v-icon >mdi-account</v-icon>
           </v-btn>
         </v-list-item-action>
         </v-list-item>

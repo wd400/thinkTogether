@@ -3,18 +3,23 @@
 <v-row align="stretch">
 
 
-
+<div>
 
     <client-only>
     <XmlViewer :gotoCell="gotoCell" :boardId="boardId" :editmode="owned" :xml="xml" v-if="xml!=null && owned!=null"/>
+  
     </client-only>
-
+     <h5>  {{$t('right_click_tips')}} </h5>
+     <h5 v-if="!$auth.loggedIn">({{$t('need_login')}})</h5>
+</div>
+             
+            <br>
 <v-col>
     <v-col >
                   <v-btn x-small
   
    @click="gotoUser()"  v-if="! owned && userid!=null" >
-   {{$t('user')}}
+      <v-icon >mdi-account</v-icon>
             </v-btn>
     <h3> {{title}}</h3>
         <h4 v-if="userid!=null">

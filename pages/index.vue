@@ -17,7 +17,6 @@
            <br>
            {{$t('explore_msg')}}
            <br>
-           
 
 
           <hr class="my-3">

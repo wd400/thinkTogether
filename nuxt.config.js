@@ -142,7 +142,10 @@ export default {
           data_access_msg:'The PUBLIC annotated dataset will be easily accessible for free download for any non-commercial use here:',
           updated_monthly:'updated monthly',
           already_used:'The nickname or email address is already in use',
-         search_header:'Search in existing graphs'
+         search_header:'Search in existing graphs',
+         right_click_tips:'Right-click on a cell to make a suggestion to the author / flag it or change its colour if you are the author',
+         need_login:'you need to be connected',
+         invalid_creds:'Invalid credentials'
 
          
         },
