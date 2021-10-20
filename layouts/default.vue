@@ -79,8 +79,8 @@
    <v-btn text @click="$auth.logout()">{{$t('logout')}}</v-btn>
   </div> 
   <div v-else>
-    <v-btn text to="/login">{{$t('login')}}</v-btn>
-    <v-btn text to="/register">{{$t('register')}}</v-btn>
+    <v-btn text :to=" $router.push('/login')">{{$t('login')}}</v-btn>
+    <v-btn text :to="$router.push('/register')">{{$t('register')}}</v-btn>
 </div>
 <!--
       <v-btn
