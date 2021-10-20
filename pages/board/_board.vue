@@ -27,19 +27,19 @@
      
      <!-- report board -->
      <v-btn x-small
-      @click="setShowReport(true)" v-if="! owned && !showReport && $auth.loggedIn && loaded" 
+      @click="TShowReport()" v-if="! owned && !showReport && $auth.loggedIn && loaded" 
     >
       <v-icon>mdi-flag</v-icon>
     </v-btn>
     
     <div v-if="showReport">
 <v-btn x-small
-      @click="setShowReport(false)" 
+      @click="FShowReport()" 
     >
       <v-icon>mdi-close</v-icon>
     </v-btn>
 
-    <Report :callback="boardReported()" reportType="board" :id="boardId" />
+    <Report :callback="boardReported" reportType="board" :id="boardId" />
 
 
 	</div>
@@ -123,8 +123,11 @@ this.loaded=true;
 
      },
      methods:{
-       setShowReport(value){
-this.showReport=value
+       TShowReport(){
+this.showReport=true
+       },
+              FShowReport(){
+this.showReport=false
        },
        gotoUser() {
          if (this.owned){
