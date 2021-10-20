@@ -7,7 +7,9 @@ export default {
   target: 'static',
 
   router: {
-    base: '/thinkTogether/'
+    base: '/thinkTogether/',
+ //   routeNameSplitter: '#',
+    mode: 'hash'
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
