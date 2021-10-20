@@ -10,14 +10,14 @@
 
 
      <v-btn x-small
-      @click="showReport=true" v-if="!showReport && userid!='me' && $auth.loggedIn" 
+      @click="setShowReport(true)" v-if="!showReport && userid!='me' && $auth.loggedIn" 
     >
       <v-icon>mdi-flag</v-icon>
     </v-btn>
     
     <div v-if="showReport">
 <v-btn x-small
-      @click="showReport=false" 
+      @click="setShowReport(false)" 
     >
       <v-icon>mdi-close</v-icon>
     </v-btn>
@@ -68,6 +68,9 @@ export default {
   methods:{
     userReported() {
 this.showReport=false
+    },
+    setShowReport(value){
+      this.showReport=value
     }
   }
 }

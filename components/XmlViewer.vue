@@ -129,7 +129,7 @@
 	
 	<div :gotoCell="gotoCell" v-if="showSuggestion">
 <v-btn
-      @click="showSuggestion=false" 
+      @click="FshowSuggestion()" 
     >
       <v-icon>mdi-close</v-icon>
     </v-btn>
@@ -140,7 +140,7 @@
 	<!-- report cell -->
 <div v-if="showReport">
 <v-btn
-      @click="showReport=false" 
+      @click="FshowReport()" 
     >
       <v-icon>mdi-close</v-icon>
     </v-btn>
@@ -202,6 +202,13 @@ props:{
 			  },
 
 			  methods:{
+				  FshowSuggestion(){
+					  this.showSuggestion=false
+				  },
+				  
+				  FshowReport(){
+					  this.showReport=false
+				  },
 
 				  closeSuggestion(){
 					  this.showSuggestion=false;

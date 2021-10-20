@@ -29,7 +29,7 @@
 
 </v-list-item-content>
         <v-list-item-action v-if="item.author!=null">
-          <v-btn  @click="$router.push('/user/'+item.author)"  icon>
+          <v-btn  @click="gotoUser(item.author)"  icon>
             <v-icon >mdi-account-question</v-icon>
           </v-btn>
         </v-list-item-action>
@@ -51,14 +51,14 @@
 
           <div>
      <v-btn x-small
-      @click="showReport=true" v-if="!showReport &&selected!=null" 
+      @click="TshowReport()" v-if="!showReport &&selected!=null" 
     >
       <v-icon>mdi-flag</v-icon>
     </v-btn>
     
     <div v-if="showReport">
 <v-btn x-small
-      @click="showReport=false" 
+      @click="FshowReport()" 
     >
       <v-icon>mdi-close</v-icon>
     </v-btn>
@@ -134,6 +134,15 @@ props:{
 
   },
   methods:{
+    TshowReport(){
+this.showReport=true
+    },
+        FshowReport(){
+this.showReport=false
+    },
+    gotoUser(userid){
+      this.$router.push('/user/'+user)
+    },
       suggestionReported(){
 
             this.suggestions.splice(this.selected, 1); 

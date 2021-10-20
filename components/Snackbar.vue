@@ -9,7 +9,7 @@
     {{ message }}
     <template v-slot:action="{ attrs }">
     
-      <v-btn   v-bind="attrs" text @click="show = false">Close</v-btn>
+      <v-btn   v-bind="attrs" text @click="Fshow()">Close</v-btn>
     </template>
 
   </v-snackbar>
@@ -18,6 +18,11 @@
 
 <script>
 export default {
+  methods:{
+Fshow(){
+  this.show=false
+}
+  },
   data () {
     return {
       show: false,

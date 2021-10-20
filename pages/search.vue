@@ -1,17 +1,16 @@
 <template>
 
     <v-col  >
+      <h2>{{$t('search_header')}}</h2>
+      <br>
         <v-row  justify="center">
                   <v-text-field
             :label="$t('search')"
             @keydown.enter.prevent="search"
             v-model="query"
+            append-icon="mdi-magnify"
           ></v-text-field>
-          <v-btn 
-      @click="search" 
-    >
-      <v-icon>mdi-magnify</v-icon>
-    </v-btn>
+
         </v-row>
          
     <v-list 
@@ -35,9 +34,15 @@
         >
          <v-list-item-content   @click="gotoBoard(item.boardid)">
                   <v-list-item-title v-text="item.title"  ></v-list-item-title>
-<v-list-item-subtitle v-text="item.author" v-if="item.author!=null" ></v-list-item-subtitle>
 {{item.description}}
 </v-list-item-content>
+
+        <v-list-item-action v-if="item.author!=null">
+          <v-btn  @click="gotoUser(item.author)"  icon>
+            <v-icon >mdi-account</v-icon>
+          </v-btn>
+        </v-list-item-action>
+
         </v-list-item>
 
 
@@ -48,7 +53,7 @@
 <br>
     <v-row justify="center">
         <v-btn 
-      @click="decrement" 
+      @click="decrement()" 
       :disabled="pageNumber==0"
     >
       <v-icon>mdi-arrow-left</v-icon>
@@ -57,7 +62,7 @@
     
 
                 <v-btn  
-      @click="increment" 
+      @click="increment()" 
       :disabled="results.length<10"
     >
       <v-icon>mdi-arrow-right</v-icon>
@@ -83,9 +88,14 @@ return {
 }
     },
     methods:{
+      gotoUser(userid){
+        this.$router.push('/user/'+userid)
+      },
+
       gotoBoard(boardid){
   this.$router.push('/board/'+boardid)
       },
+      
         decrement(){
 
             this.pageNumber-=1;

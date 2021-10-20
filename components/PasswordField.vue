@@ -51,7 +51,7 @@ props:{
       }
     },
         created() {
-          this.rules=[ this.minLength('password', 8), this.maxLength('password', 20)]
+          this.rules=[ this.minLength('password', 8), this.maxLength('password', 30)]
         if ( this.needed){
             this.rules.concat(this.required('password'))
         }

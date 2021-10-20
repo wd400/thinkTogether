@@ -2,7 +2,7 @@
   <v-form v-model="valid">
     <v-text-field v-model="loginInfo.name"
                   :label="$t('name')"
-                  :rules="[required('name'), minLength('name', 1),maxLength('name', 20)]" 
+                  :rules="[required('name'), minLength('name', 1),maxLength('name', 30)]" 
                   v-if="hasName" />
 
     <v-text-field v-model="loginInfo.email"

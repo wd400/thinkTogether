@@ -142,6 +142,7 @@ export default {
           data_access_msg:'The PUBLIC annotated dataset will be easily accessible for free download for any non-commercial use here:',
           updated_monthly:'updated monthly',
           already_used:'The nickname or email address is already in use',
+         search_header:'Search in existing graphs'
 
          
         },

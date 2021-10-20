@@ -27,14 +27,14 @@
      
      <!-- report board -->
      <v-btn x-small
-      @click="showReport=true" v-if="! owned && !showReport && $auth.loggedIn && loaded" 
+      @click="setShowReport(true)" v-if="! owned && !showReport && $auth.loggedIn && loaded" 
     >
       <v-icon>mdi-flag</v-icon>
     </v-btn>
     
     <div v-if="showReport">
 <v-btn x-small
-      @click="showReport=false" 
+      @click="setShowReport(false)" 
     >
       <v-icon>mdi-close</v-icon>
     </v-btn>
@@ -123,6 +123,9 @@ this.loaded=true;
 
      },
      methods:{
+       setShowReport(value){
+this.showReport=value
+       },
        gotoUser() {
          if (this.owned){
 this.$router.push('/user/me')
