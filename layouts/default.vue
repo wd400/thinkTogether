@@ -76,11 +76,11 @@
       </v-btn>
 
   
-   <v-btn text @click="$auth.logout()">{{$t('logout')}}</v-btn>
+   <v-btn text @click="logout()" >{{$t('logout')}}</v-btn>
   </div> 
   <div v-else>
-    <v-btn text :to=" $router.push('/login')">{{$t('login')}}</v-btn>
-    <v-btn text :to="$router.push('/register')">{{$t('register')}}</v-btn>
+    <v-btn text @click="gotoLogin()">{{$t('login')}}</v-btn>
+    <v-btn text @click="gotoRegister()">{{$t('register')}}</v-btn>
 </div>
 <!--
       <v-btn
@@ -156,6 +156,15 @@ export default {
     }
   },
   methods:{
+    gotoRegister(){
+this.$router.push('/register')
+    },
+    gotoLogin(){
+       this.$router.push('/login')
+    },
+    logout(){
+      this.$auth.logout()
+    },
     gotoMe(){
       this.$router.push('/user/me')
     },

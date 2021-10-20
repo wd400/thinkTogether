@@ -1,5 +1,5 @@
 <mxEditor defaultGroup="group" defaultEdge="connector">
-	<include name="/mxgraph/examples/editors/config/editor-commons.xml"/>
+	<include name="mxgraph/examples/editors/config/editor-commons.xml"/>
 	<add as="onInit"><![CDATA[
 		function ()
 		{

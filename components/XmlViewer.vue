@@ -72,7 +72,7 @@
 					<div id="graph" tabindex="-1" style="position:relative;height:580px;width:784px;overflow:hidden;cursor:default;">
 						<!-- Graph Here -->
 						<center id="splash" style="padding-top:230px;">
-							<img src="/images/loading.gif">
+							<img src="images/loading.gif">
 						</center>
 
 
@@ -248,7 +248,7 @@ this.showSuggestion=true;
     created() {
 		
       let mxScript = document.createElement('script')
-      mxScript.src='/mxgraph/mxClient.js'
+      mxScript.src='mxgraph/mxClient.js'
 	  let currentXml=this.xml
 	  let currentEditMode=this.editmode
 	  let save=this.saveCallback
@@ -260,16 +260,16 @@ this.showSuggestion=true;
 
 		let xmlfile;
 		if (this.editmode){
-			xmlfile='/mxgraph/examples/editors/config/diagrameditor.xml'
+			xmlfile='mxgraph/examples/editors/config/diagrameditor.xml'
 		} else {
-			xmlfile='/mxgraph/examples/editors/config/simplediagrameditor.xml'
+			xmlfile='mxgraph/examples/editors/config/simplediagrameditor.xml'
 		}
 
 	  mxScript.onload = function(){
 
      
 	let appScript = document.createElement('script')
-	      appScript.src= '/mxgraph/examples/editors/js/app.js'
+	      appScript.src= 'mxgraph/examples/editors/js/app.js'
 document.head.appendChild(appScript)
 	appScript.onload= function(){
 		

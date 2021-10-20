@@ -468,7 +468,7 @@ if (typeof(mxBasePath) != 'undefined' && mxBasePath.length > 0)
 }
 else
 {
-	mxClient.basePath = '/mxgraph/src';
+	mxClient.basePath = 'mxgraph/src';
 }
 
 /**
@@ -501,7 +501,7 @@ if (typeof(mxImageBasePath) != 'undefined' && mxImageBasePath.length > 0)
 else
 {
 	//mxClient.imageBasePath = mxClient.basePath + '/images';	
-	mxClient.imageBasePath = '/images';	
+	mxClient.imageBasePath = 'images';	
 }
 
 
