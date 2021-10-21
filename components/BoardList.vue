@@ -118,7 +118,7 @@
 
 
         <v-list-item v-if="user=='me' && boards.length<10 && !newBoardTemplate">
-<v-btn icon
+<v-btn 
       @click="newBoardTemplate=true"
  block   >
       <v-icon>mdi-plus</v-icon>
