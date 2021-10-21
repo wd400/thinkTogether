@@ -145,7 +145,9 @@ export default {
          search_header:'Search in existing graphs',
          right_click_tips:'Right-click on a cell to make a suggestion to the author / flag it or change its colour if you are the author',
          need_login:'you need to be connected',
-         invalid_creds:'Invalid credentials'
+         invalid_creds:'Invalid credentials',
+         no_results:'No results',
+         random:'random'
 
          
         },

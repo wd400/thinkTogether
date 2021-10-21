@@ -29,7 +29,7 @@
 
 </v-list-item-content>
         <v-list-item-action v-if="item.author!=null">
-          <v-btn  @click="gotoUser(item.author)"  icon>
+          <v-btn icon  @click="gotoUser(item.author)"  icon>
             <v-icon >mdi-account</v-icon>
           </v-btn>
         </v-list-item-action>
@@ -50,7 +50,7 @@
  <v-divider v-if="showReport|| selected!=null " ></v-divider>
 
           <div>
-     <v-btn x-small
+     <v-btn x-small icon
       @click="TshowReport()" v-if="!showReport &&selected!=null" 
     >
       <v-icon>mdi-flag</v-icon>

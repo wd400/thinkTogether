@@ -60,7 +60,9 @@
       <v-spacer />
     <v-toolbar-title v-text="title" /> -->
      <v-btn text @click="gotoSearch()">{{$t('search')}}</v-btn>
-   <!--  <v-btn text @click="gotoRandom()">{{$t('random')}}</v-btn> -->
+  <v-btn text @click="gotoRandom()">{{$t('random')}}</v-btn>
+  
+   
      <div v-if="$auth.loggedIn">
      <v-btn text @click="gotoMe()">{{$t('me')}}</v-btn>
        </div> 
@@ -69,7 +71,7 @@
 <div v-if="$auth.loggedIn">
 
 
-      <v-btn 
+      <v-btn  icon
         @click="gotoSettings()"
       >
         <v-icon>mdi-account-cog</v-icon>
@@ -118,12 +120,14 @@
     </v-navigation-drawer>
 -->
   <Snackbar></Snackbar>
+  <!--
     <v-footer
       :absolute="!fixed"
       app
     >
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
+    -->
   </v-app>
 </template>
 
@@ -156,6 +160,16 @@ export default {
     }
   },
   methods:{
+    
+       gotoRandom(){
+
+    this.$router.push("/newrandom")
+
+
+     //  this.$refs.page.$forceUpdate()
+     //      this.$router.push({path:'/board/random', force: true})
+      
+       },
     gotoRegister(){
 this.$router.push('/register')
     },

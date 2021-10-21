@@ -29,7 +29,7 @@
 
 </v-list-item-content>
         <v-list-item-action>
-          <v-btn x-small  @click="uninvite(item.userid)"  >
+          <v-btn icon x-small  @click="uninvite(item.userid)"  >
             <v-icon >mdi-account-remove</v-icon>
           </v-btn>
         </v-list-item-action>
@@ -43,7 +43,7 @@
             :label="$t('new_pseudo')"
           ></v-text-field>
 
- <v-btn  @click="invite()"  >
+ <v-btn icon @click="invite()"  >
             <v-icon >mdi-account-plus</v-icon>
           </v-btn>
 

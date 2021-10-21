@@ -119,7 +119,7 @@
        >{{$t('fit')}}</v-btn>
 	   
 
-<v-btn v-if="editmode" id="saveid"   >
+<v-btn  v-if="editmode" id="saveid"  >
       <v-icon>mdi-content-save</v-icon>
     </v-btn>
 	</div>
@@ -139,7 +139,7 @@
 
 	<!-- report cell -->
 <div v-if="showReport">
-<v-btn
+<v-btn icon
       @click="FshowReport()" 
     >
       <v-icon>mdi-close</v-icon>
@@ -249,6 +249,10 @@ this.showSuggestion=true;
 
 
 
+			  },
+			  destroyed(){
+
+				this.gotoCell.quit()
 			  },
   
 

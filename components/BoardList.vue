@@ -35,7 +35,7 @@
 
           ></v-text-field>
 
-<v-btn
+<v-btn icon
       @click="saveTitle(item)"
     >
       <v-icon>mdi-content-save</v-icon>
@@ -52,7 +52,7 @@
 
 @keydown.enter="saveDescription"
           ></v-textarea>
-<v-btn
+<v-btn icon
       @click="saveDescription(item)"
     >
       <v-icon>mdi-content-save</v-icon>
@@ -60,14 +60,14 @@
 
 </v-row>
 
-<v-row>
-<v-btn
+<v-row align="center" >
+<v-btn icon
       @click="deleteBoard(item.boardid)"
     >
       <v-icon>mdi-delete</v-icon>
     </v-btn>
+
     <v-spacer/>
-      <v-row>
 
     <v-checkbox
       v-model="item.public"
@@ -76,16 +76,21 @@
 
       v-on:change="changePublic(item)"
 
-    ></v-checkbox>
+    >
+    </v-checkbox>
+
+    <v-spacer/>
+
         <v-checkbox
       v-model="item.anonym"
       :label="$t('anonym')"
       :disabled="!item.public"
       v-on:change="changeAnonym(item)"
     ></v-checkbox>
-  </v-row>
 
-<v-btn
+<v-spacer/>
+
+<v-btn icon
       @click="gotoBoard(item.boardid)"
     >
       <v-icon>mdi-eye</v-icon>
@@ -94,7 +99,7 @@
          
 
  <br>
- <v-divider inset/>
+ <v-divider />
  
           </v-container>
 </div>
@@ -113,7 +118,7 @@
 
 
         <v-list-item v-if="user=='me' && boards.length<10 && !newBoardTemplate">
-<v-btn
+<v-btn icon
       @click="newBoardTemplate=true"
  block   >
       <v-icon>mdi-plus</v-icon>
@@ -131,7 +136,6 @@
 v-if="newBoardTemplate"
       >  
 
- <v-divider inset></v-divider>
 
                 <v-text-field
             v-model="newTitle"

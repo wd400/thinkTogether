@@ -16,7 +16,7 @@
             <br>
 <v-col>
     <v-col >
-                  <v-btn x-small
+                  <v-btn x-small icon
   
    @click="gotoUser()"  v-if="! owned && userid!=null" >
       <v-icon >mdi-account</v-icon>
@@ -38,7 +38,7 @@
     </v-btn>
     
     <div v-if="showReport">
-<v-btn x-small
+<v-btn x-small icon
       @click="FShowReport()" 
     >
       <v-icon>mdi-close</v-icon>
@@ -73,6 +73,11 @@ export default {
         UserAuthForm
     },
     created() {
+      if (this.$route.params.board=="random") {
+
+this.boardId="random"
+
+      } else {
      var tmpboardId = Number(this.$route.params.board)
      if (isNaN(tmpboardId)) {
 
@@ -81,7 +86,7 @@ export default {
         this.boardId=tmpboardId
      }
     
-
+      }
     },
           data() {
     return {
@@ -109,7 +114,19 @@ this.userid=response.data.userid;
 this.title=response.data.title;
 this.description=response.data.description;
 this.xml=response.data.xml;
-this.loaded=true;
+
+if (this.boardId=="random"){
+  this.boardId=response.data.boardid
+history.replaceState(
+    {},
+    null,
+     '#' +'/board/'+response.data.boardid
+  )
+ // this.$route.path='/board/'+response.data.boardid
+
+  this.loaded=true;
+
+}
 //this.xml='<mxGraphModel>  <root>    <Diagram label="My Diagram" href="http://www.jgraph.com/" id="0">      <mxCell />    </Diagram>    <Layer label="Default Layer" id="1">      <mxCell parent="0" />    </Layer>    <Rect label="Rectangle" href="" id="2">      <mxCell vertex="1" parent="1">        <mxGeometry x="440" y="50" width="80" height="40" as="geometry" />      </mxCell>    </Rect>    <Rect label="Rectangle" href="" id="3">      <mxCell vertex="1" parent="1">        <mxGeometry x="280" y="190" width="80" height="40" as="geometry" />      </mxCell>    </Rect>    <Connector label="" href="" id="4">      <mxCell edge="1" parent="1" source="2" target="3">        <mxGeometry relative="1" as="geometry" />      </mxCell>    </Connector>  </root></mxGraphModel>'
 
    //     alert(response.data);

@@ -13,7 +13,7 @@
 
         </v-row>
          
-    <v-list 
+    <v-list v-if="results.length>0"
     
   
    class="overflow-y-auto"
@@ -51,10 +51,15 @@
       </v-list-item-group>
     </v-list>
 <br>
-    <v-row justify="center">
+<v-row v-if="results.length==0">
+  <h3>{{$t('no_results')}}</h3>
+</v-row>
+    <v-row v-else justify="center">
+      
         <v-btn 
       @click="decrement()" 
       :disabled="pageNumber==0"
+      icon
     >
       <v-icon>mdi-arrow-left</v-icon>
     </v-btn>
@@ -64,6 +69,7 @@
                 <v-btn  
       @click="increment()" 
       :disabled="results.length<10"
+      icon
     >
       <v-icon>mdi-arrow-right</v-icon>
     </v-btn>

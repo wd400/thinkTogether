@@ -23,7 +23,7 @@
 
           ></v-textarea>
 
-<v-btn
+<v-btn icon
       @click="sendReport()" 
     >
       <v-icon>mdi-send</v-icon>

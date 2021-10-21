@@ -23,7 +23,15 @@ loginUser(logininfo){
      this.$router.push('/')
 })
 .catch(error => {
+
+     if(error.response.status==403){
+                     this.$notifier.showMessage({ content:this.$t('invalid_creds'), color: 'error' })
+
+} else {
+
                   this.$notifier.showMessage({ content:this.$t('error'), color: 'error' })
+}
+
 
 });
        

@@ -17,7 +17,7 @@
       :label="$t('anonym')"
     ></v-checkbox>
 
-<v-btn
+<v-btn icon
       @click="sendSuggestion()" 
     >
       <v-icon>mdi-send</v-icon>

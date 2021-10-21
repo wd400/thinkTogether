@@ -5,15 +5,22 @@
         
       </v-card>
       <v-card>
-        <v-card-title class="headline">
-          {{$t('app_description')}}
+      <v-card-title class="headline">
+       <v-icon left large>mdi-thought-bubble</v-icon> 
+     <h2>  thinkTogether </h2>
+       <v-card-subtitle>
+        <h4>  {{$t('app_description')}} </h4>
+       </v-card-subtitle>
         </v-card-title>
         <v-card-text>
-          <p>{{$t('use_cases')}}</p>
-          <p>-{{$t('general_reflections')}}</p>
-          <p>-{{$t('dilemmas')}}</p>
-          <p>-{{$t('action_process')}}</p>
-          <p>-{{$t('personnal_problems')}}</p>
+
+          <h4>{{$t('use_cases')}}</h4>
+          <ul>
+          <li>{{$t('general_reflections')}}</li>
+          <li>{{$t('dilemmas')}}</li>
+          <li>{{$t('action_process')}}</li>
+          <li>{{$t('personnal_problems')}}</li>
+          </ul>
            <br>
            {{$t('explore_msg')}}
            <br>

@@ -29,7 +29,7 @@
 
 </v-list-item-content>
         <v-list-item-action>
-          <v-btn x-small  @click="quitBoard(item.boardid)"  >
+          <v-btn x-small icon  @click="quitBoard(item.boardid)"  >
             <v-icon >mdi-account-remove</v-icon>
           </v-btn>
         </v-list-item-action>

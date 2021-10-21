@@ -20,7 +20,7 @@
           ></v-text-field>
 </v-flex>
 <v-flex xs2 md3 >
-  <v-btn @click="savePseudo()"
+  <v-btn icon @click="savePseudo()"
     >
       <v-icon>mdi-content-save</v-icon>
     </v-btn>
@@ -47,7 +47,7 @@
           ></v-text-field>
 </v-flex>
 <v-flex xs2 md3 >
-  <v-btn @click="saveMail()"
+  <v-btn icon @click="saveMail()"
     >
       <v-icon>mdi-content-save</v-icon>
     </v-btn>
@@ -66,7 +66,7 @@
  <PasswordField :needed="false" :title="$t('new_password')" :destination="newPasswordRef"/>
 </v-flex>
 <v-flex xs2 md3 >
-    <v-btn  @click="savePassword()"
+    <v-btn icon  @click="savePassword()"
     >
       <v-icon>mdi-content-save</v-icon>
     </v-btn>
@@ -84,7 +84,7 @@
         
 </v-flex>
       <v-flex xs2 md3 >
-  <v-btn  @click="deleteAccount()"
+  <v-btn icon @click="deleteAccount()"
     >
       <v-icon>mdi-account-remove</v-icon>
     </v-btn>
