@@ -54,7 +54,7 @@ In the result list, if the graph is published in public mode a "user" icon will 
 	It is also possible to display the current graph in full screen to print it or display it (print and show buttons)
 - Tools for modification*: \
 	When you are the owner of a graph, you can edit the graph. \
-	The blocks are on the left. You can drag them onto the drawing board. Once in place you can move it, write in it (by double clicking on it), resize it or change its colour by right clicking on it. \
+	Graph components are on the left. You can drag them onto the drawing board. Once in place you can move it, write in it (by double clicking on it), resize it or change its colour by right clicking on it. \
 	Arrows can also be moved, have text, move the ends and change colour. To create a link you can hold your mouse over the little "arrow" icon that appears, drag and drop it to the side of a cell. \
 	The containers have the advantage of folding and unfolding while keeping the sub-graphs inside. Their names and colours can be changed. A container can contain another one. \
 	The current keyboard shortcuts are activated. \

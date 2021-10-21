@@ -35,6 +35,15 @@
               rel="noopener noreferrer"
             >https://github.com/wd400/thinkTogether/releases/</a> ({{$t('updated_monthly')}})
 </p>
+
+<h5>{{$t('notice_location')}} <a
+              href="https://github.com/wd400/thinkTogether/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >{{$t('here')}}</a> </h5> 
+
+
+
         </v-card-text>
 
       </v-card>

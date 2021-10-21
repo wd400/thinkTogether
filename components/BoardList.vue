@@ -11,7 +11,7 @@
     
   >
                   <v-list-item-title class="text-h6" >
-            {{$t('my_graphs')}}
+            {{$t('graph_list')}}
             </v-list-item-title>
       <v-list-item-group
         color="primary"

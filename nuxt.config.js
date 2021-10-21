@@ -148,7 +148,11 @@ export default {
          invalid_creds:'Invalid credentials',
          no_results:'No results',
          random:'random',
-         my_graphs:'My graphs'
+         my_graphs:'My graphs',
+         user_graphs:'User graphs',
+         here:'here',
+         graph_list:'Graph list',
+         notice_location:'A short notice can be found'
 
          
         },
