@@ -14,28 +14,7 @@
 	//	alert("createEditor")
 
 
-	gotocell.function=function(id)
-	{
 
-	if (id==null){
-		editor.graph.clearSelection();
-		return
-	}
-	var model = editor.graph.getModel();
-	var cell=model.getCell(id);
-//	cell=editor.graph.getDefaultParent();
-	console.log(cell);
-	if (cell!=null && cell.geometry != null){
-	
-	editor.graph.clearSelection();
-	editor.graph.setSelectionCell(cell);
-	editor.graph.scrollCellToVisible(cell,true);
-	// editor.graph.view.refresh(cell);
-	} else {
-	alert("Cell deleted");
-	}
-	
-	}
 
 
 
@@ -246,6 +225,43 @@ saveXML(mxUtils.getPrettyXml(node));
 								}
 							});
 */
+
+/*
+editor.graph.addListener(mxEvent.CLICK, function (evt) {
+	alert('ici')
+	editor.graph.popupMenuHandler.hideMenu()
+
+});
+*/
+
+gotocell.function=function(id)
+{
+
+if (id==null){
+	editor.graph.clearSelection();
+	return
+}
+var model = editor.graph.getModel();
+var cell=model.getCell(id);
+//	cell=editor.graph.getDefaultParent();
+console.log(cell);
+if (cell!=null && cell.geometry != null){
+
+editor.graph.clearSelection();
+editor.graph.setSelectionCell(cell);
+editor.graph.scrollCellToVisible(cell,true);
+// editor.graph.view.refresh(cell);
+} else {
+alert("Cell deleted");
+}
+
+}
+
+gotocell.quit= function(){
+
+	editor.graph.popupMenuHandler.hideMenu();
+}
+
 
 				var doc = mxUtils.parseXml(xml);
 				var codec = new mxCodec(doc);
