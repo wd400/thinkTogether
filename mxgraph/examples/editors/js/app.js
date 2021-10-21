@@ -107,7 +107,8 @@ editor.graph.popupMenuHandler.factoryMethod = function(menu, cell, evt)
 				} else{
 
 					editor.graph.setEnabled(false);
-		     
+					editor.graph.cellRenderer.forceControlClickHandler=true
+			
 					
 					editor.graph.popupMenuHandler.factoryMethod = function(menu, cell, evt)
 					{
@@ -143,6 +144,8 @@ editor.graph.popupMenuHandler.factoryMethod = function(menu, cell, evt)
 				editor.graph.popupMenuHandler.factoryMethod =null
 
 				editor.graph.setEnabled(false);
+				editor.graph.cellRenderer.forceControlClickHandler=true
+			
 			}
 
 				if (editmode){
