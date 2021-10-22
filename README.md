@@ -60,7 +60,8 @@ In the result list, if the graph is published in public mode a "user" icon will 
 	The current keyboard shortcuts are activated. \
 	"Organic layout" offers you an unmixed organisation of your graph. \
 	Don't forget to save at the end of your edition! \
-You can invite particular people to make suggestions on your graph. This is only useful if the graph is not public. To do this enter the nickname of the guest and click on the "add" icon. To remove the guest, simply click on the icon next to the guest's name.
+
+- You can invite particular people to make suggestions on your graph. This is only useful if the graph is not public. To do this enter the nickname of the guest and click on the "add" icon. To remove the guest, simply click on the icon next to the guest's name.
 
 - View suggestions*: \
     The suggestions you have received are in the form of a list. If the suggestion was not made anonymously, a link to the suggestion author's account appears on the same line as the suggestion. When you select a suggestion, the graph display focuses on the box concerned (if it still exists). You must then evaluate the importance of the suggestion or report it if its content is harmful.

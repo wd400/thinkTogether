@@ -7,6 +7,8 @@ export default {
   target: 'static',
   ssr:false,
 
+  head: { link: [{ rel: 'icon', type: 'image/png', href: 'favicon.ico' }] },
+
   router: {
     base: '/thinkTogether/',
  //   routeNameSplitter: '#',
