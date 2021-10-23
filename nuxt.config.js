@@ -154,7 +154,8 @@ export default {
          user_graphs:'User graphs',
          here:'here',
          graph_list:'Graph list',
-         notice_location:'A short notice can be found'
+         notice_location:'A short notice can be found',
+         footer:'Alpha version, bug reports and suggestions are welcome via github or discord!'
 
          
         },

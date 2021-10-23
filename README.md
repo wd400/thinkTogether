@@ -11,7 +11,7 @@
 
 
 ### SEARCH tab
-- Search in existing graphs.
+- Search in existing public graphs.
 The search will be done on the title of graphs, descriptions and  contents of their cells.
 In the result list, if the graph is published in public mode a "user" icon will appear on the same line.
 

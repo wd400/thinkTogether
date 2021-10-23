@@ -118,7 +118,7 @@ search(){
         this.pageNumber=0
     }
 
-
+//.normalize("NFD").replace(/[\u0300-\u036f]/g, "")s
 this.$axios.post('/search',{'query':this.query,'page':this.pageNumber}).then(response => { 
 
 

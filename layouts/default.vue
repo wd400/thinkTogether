@@ -120,14 +120,23 @@
     </v-navigation-drawer>
 -->
   <Snackbar></Snackbar>
-  <!--
+  
     <v-footer
       :absolute="!fixed"
       app
     >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <h5> {{  $t('footer') }} 
+        
+        
+     (   <a
+              href="https://discordapp.com/users/778187282841600012/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >wd400#0222</a> )
+
+     </h5>
     </v-footer>
-    -->
+   
   </v-app>
 </template>
 
