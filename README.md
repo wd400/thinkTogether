@@ -1,4 +1,4 @@
-## ThinkTogether
+# ThinkTogether
 <br>
 
 ## 👉 https://wd400.github.io/thinkTogether/ 👈
