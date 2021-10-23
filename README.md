@@ -1,5 +1,4 @@
 ## ThinkTogether
-#### A sharing and mutual aid platform based on graphs of our thoughts 💭  
 <br>
 
 ## 👉 https://wd400.github.io/thinkTogether/ 👈
