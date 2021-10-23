@@ -259,7 +259,7 @@ this.showSuggestion=true;
     created() {
 		
       let mxScript = document.createElement('script')
-      mxScript.src='mxgraph/mxClient.min.js'
+      mxScript.src='mxgraph/mxClient.js'
 	  let currentXml=this.xml
 	  let currentEditMode=this.editmode
 	  let save=this.saveCallback
