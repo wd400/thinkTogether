@@ -3,6 +3,7 @@
   <v-card
     class="mx-auto"
     min-width="500"
+    max-width="700"
     tile
 
   >
@@ -114,7 +115,7 @@
           v-for="(item, i) in boards"
           :key="i"  
           fluid
-          inactive
+          
         >
         <v-list-item-content @click="gotoBoard(item.boardid)" >
             <v-list-item-title v-text="item.title"></v-list-item-title>

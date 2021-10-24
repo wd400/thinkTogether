@@ -7,7 +7,7 @@ export default {
   target: 'static',
   ssr:false,
 
-  head: { link: [{ rel: 'icon', type: 'image/png', href: 'favicon.ico' }] },
+  head: { link: [{ rel: 'icon', type: 'image/png', href: '/thinkTogether/favicon.ico' }] },
 
   router: {
     base: '/thinkTogether/',
@@ -39,6 +39,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+  //  './node_modules/material-design-icons-iconfont/dist/material-design-icons.css'
+  //  '@mdi/font/css/materialdesignicons.min.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -53,6 +55,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    ['@nuxtjs/vuetify', { iconfont: 'mdi' }]
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
