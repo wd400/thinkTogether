@@ -29,14 +29,14 @@ In the result list, if the graph is published in public mode a "user" icon will 
 ### ME tab *
 - Displays an interface to manage all your graphs and invitations received.
 
-- Graph management:
-    - To create a new graph, simply press the "+" at the bottom and enter its title, description, whether you want it to be public (checkbox "Public") and if so whether if you want it to be associated with your account (checkbox "Anonym"). Currently a user can create up to 10 graphs.
+- To create a new graph, simply press the "+" at the bottom and enter its title, description, whether you want it to be public (checkbox "Public") and if so whether if you want it to be associated with your account (checkbox "Anonym"). Currently a user can create up to 10 graphs.
 
+- Modify a graph property (three dots icons):
     - To delete one of your graphs, simply press the "bin" icon associated with it in the list of your graphs.
 		
     - To modify the title or description of a graph, modify it directly in the associated fields in the list of your graphs and do not forget to press save.
 
-    - To modify the status of one of your graphs (public/anonym), modify it directly with the associated chechboxes in the list of your graphs.
+    - To modify the status of one of your graphs (public/anonym), modify it directly with the associated checkboxes in the list of your graphs.
 
     - To view/edit one of your graphs, click on the "eye" icon associated to it.
 

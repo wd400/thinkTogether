@@ -16,7 +16,7 @@
 <v-col>
     <v-col align-self="stretch">
 
-<v-row align="center" dense="true">
+<v-row align="center" :dense="true">
 <v-btn  icon
    @click="gotoUser()"  v-if="! owned && userid!=null" >
       <v-icon >mdi-account</v-icon>
@@ -120,11 +120,10 @@ history.replaceState(
     null,
      '#' +'/board/'+response.data.boardid
   )
+
  // this.$route.path='/board/'+response.data.boardid
-
-  this.loaded=true;
-
 }
+this.loaded=true;
 //this.xml='<mxGraphModel>  <root>    <Diagram label="My Diagram" href="http://www.jgraph.com/" id="0">      <mxCell />    </Diagram>    <Layer label="Default Layer" id="1">      <mxCell parent="0" />    </Layer>    <Rect label="Rectangle" href="" id="2">      <mxCell vertex="1" parent="1">        <mxGeometry x="440" y="50" width="80" height="40" as="geometry" />      </mxCell>    </Rect>    <Rect label="Rectangle" href="" id="3">      <mxCell vertex="1" parent="1">        <mxGeometry x="280" y="190" width="80" height="40" as="geometry" />      </mxCell>    </Rect>    <Connector label="" href="" id="4">      <mxCell edge="1" parent="1" source="2" target="3">        <mxGeometry relative="1" as="geometry" />      </mxCell>    </Connector>  </root></mxGraphModel>'
 
    //     alert(response.data);

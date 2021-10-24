@@ -1,9 +1,12 @@
 <template>
 
-<v-row align="baseline">
+<v-row>
+  
+
 <BoardList :user="userid" />
 <v-spacer/>
-<MyInvitations v-if="userid=='me'"/>
+<v-col>
+
 <div>
   
 <UserInfo :user="userid" />
@@ -27,7 +30,8 @@
 
 
 </div>
-
+<MyInvitations v-if="userid=='me'"/>
+</v-col>
 </v-row>
 
 

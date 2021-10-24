@@ -158,6 +158,8 @@ export default {
          footer:'Alpha version, bug reports and suggestions are welcome via github or discord!',
          no_guests:'No guests',
          no_invitations:'No invitations',
+         no_graphs:'No graphs',
+         edit_properties:'Edit properties'
 
          
         },
@@ -218,7 +220,7 @@ export default {
           global: true,
            required: true,
            type: '',
-           maxAge: 60*60*2
+           maxAge: 60*60*24*7
         },
         user: {
           property: 'user',
@@ -228,6 +230,7 @@ export default {
           login: { url: '/login', method: 'post' },
           logout: { url: '/revoketoken', method: 'get' },
           refresh:{url:'/refreshtoken',method:'get'},
+    // refresh:null,
          user:false
         }
       }

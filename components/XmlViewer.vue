@@ -247,13 +247,13 @@ this.showSuggestion=true;
 
 			  },
 			  destroyed(){
-
+if (this.gotoCell.quit!=null){
 				this.gotoCell.quit()
+}
 			  },
   
 
     created() {
-		
       let mxScript = document.createElement('script')
       mxScript.src='mxgraph/mxClient.js'
 	  let currentXml=this.xml
@@ -270,21 +270,20 @@ this.showSuggestion=true;
 			xmlfile='mxgraph/examples/editors/config/diagrameditor.xml'
 		} else {
 			xmlfile='mxgraph/examples/editors/config/simplediagrameditor.xml'
-		}
+		};
+	mxScript.type = "text/javascript";
+	  mxScript.onload = function(event=null){
 
-	  mxScript.onload = function(){
 
-     
 	let appScript = document.createElement('script')
 	      appScript.src= 'mxgraph/examples/editors/js/app.js'
 document.head.appendChild(appScript)
-	appScript.onload= function(){
+	appScript.onload= function(event=null){
 		
 	createEditor(xmlfile,currentXml,currentEditMode,save,reportCall,suggestCall,gotoc,loggedin)
-}
-	  }
+};
+	  };
 	  document.head.appendChild(mxScript)
-
 
 	//  appScript.innerHTML=`createEditor('/mxgraph/examples/editors/config/diagrameditor.xml','${escape(this.xml)}')`
 

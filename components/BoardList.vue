@@ -3,31 +3,43 @@
   <v-card
     class="mx-auto"
     min-width="500"
-  max-width="1000"
     tile
+
   >
- 
-    <v-list 
-       class="overflow-y-auto"
+<v-card-title v-if="editmode"  >
     
-  >
-                  <v-list-item-title >
-          <h1>  {{$t('graph_list')}}</h1>
-            </v-list-item-title>
-            <v-divider/>
-      <v-list-item-group
+    
+
+<v-btn icon    
+      @click="FeditMode()"
+    >
+      <v-icon>mdi-arrow-left</v-icon>
+      
+    </v-btn>
+    <h2 >
+{{$t('edit_properties')}}
+    </h2>
+    </v-card-title>
+    <v-card-title v-else  >
+    <h2 >  {{$t('graph_list')}}</h2>
+
+</v-card-title>
+
+      <v-divider/>
+
+ <v-list 
+       max-height="500" >
+
+                <v-list-item-group
         color="primary"
       >
 
-<div v-if="user=='me'">
-          <v-container 
-          
-                    v-for="(item, i) in boards"
-          :key="i"
-          fluid  >
-<v-row align="center">
-          <v-text-field 
-            v-model="item.title"
+      <v-list-item inactive :selectable="false" :ripple="false" v-if="editmode" >
+
+<v-col>
+<v-row align="center"> 
+  <v-text-field 
+            v-model="boards[selected].title"
             counter
             maxlength="100"
             :label="$t('title')"
@@ -38,7 +50,7 @@
           ></v-text-field>
 
 <v-btn icon
-      @click="saveTitle(item)"
+      @click="saveTitle(boards[selected])"
     >
       <v-icon>mdi-content-save</v-icon>
     </v-btn>
@@ -47,7 +59,7 @@
 
 <v-row align="center">
           <v-textarea
-            v-model="item.description"
+            v-model="boards[selected].description"
             counter
             maxlength="200"
             :label="$t('description')"
@@ -55,7 +67,7 @@
 @keydown.enter="saveDescription"
           ></v-textarea>
 <v-btn icon
-      @click="saveDescription(item)"
+      @click="saveDescription(boards[selected])"
     >
       <v-icon>mdi-content-save</v-icon>
     </v-btn>
@@ -64,7 +76,7 @@
 
 <v-row align="center" >
 <v-btn icon
-      @click="deleteBoard(item.boardid)"
+      @click="deleteBoard(boards[selected].boardid)"
     >
       <v-icon>mdi-delete</v-icon>
     </v-btn>
@@ -72,11 +84,11 @@
     <v-spacer/>
 
     <v-checkbox
-      v-model="item.public"
+      v-model="boards[selected].public"
 
       :label="$t('public')"
 
-      v-on:change="changePublic(item)"
+      v-on:change="changePublic(boards[selected])"
 
     >
     </v-checkbox>
@@ -84,52 +96,50 @@
     <v-spacer/>
 
         <v-checkbox
-      v-model="item.anonym"
+      v-model="boards[selected].anonym"
       :label="$t('anonym')"
-      :disabled="!item.public"
-      v-on:change="changeAnonym(item)"
+      :disabled="!boards[selected].public"
+      v-on:change="changeAnonym(boards[selected])"
     ></v-checkbox>
 
-<v-spacer/>
 
-<v-btn icon x-large
-      @click="gotoBoard(item.boardid)"
-    >
-      <v-icon>mdi-eye</v-icon>
-    </v-btn>
+
 </v-row>
-         
+</v-col>
 
- <br>
- <v-divider />
- 
-          </v-container>
-</div>
-<div v-else>
-        <v-list-item
+      </v-list-item>
+      
+
+        <v-list-item v-else
           v-for="(item, i) in boards"
           :key="i"  
+          fluid
+          inactive
         >
         <v-list-item-content @click="gotoBoard(item.boardid)" >
             <v-list-item-title v-text="item.title"></v-list-item-title>
             <v-list-item-subtitle v-text="item.description"></v-list-item-subtitle>
+           
 </v-list-item-content>
+        <v-list-item-action v-if="user=='me'">
+          <v-btn icon  @click="TeditMode(i)"  >
+            <v-icon >mdi-dots-vertical</v-icon>
+          </v-btn>
+        </v-list-item-action>
         </v-list-item>
-</div>
 
 
+      </v-list-item-group>
+      
+  <h5 v-if="boards.length==0">{{$t('no_graphs')}}</h5>
+    </v-list>
 
-        <v-list-item v-if="user=='me' && boards.length<10 && !newBoardTemplate">
-<v-btn 
+
+<v-btn v-if="user=='me' && boards.length<10 && !newBoardTemplate && !editmode"
       @click="newBoardTemplate=true"
  block   >
       <v-icon>mdi-plus</v-icon>
     </v-btn>
-        </v-list-item>
-      </v-list-item-group>
-    </v-list>
-
-
 
 
           <form
@@ -210,7 +220,9 @@ export default{
         newTitle:'',
         newDescription:'',
         newIsPublic:true,
-        newIsAnonym:false
+        newIsAnonym:false,
+        selected:-1,
+        editmode:false,
       }
     },
 
@@ -222,6 +234,13 @@ props:{
 
   },
   methods:{
+        FeditMode(){
+this.editmode=false;
+    },
+    TeditMode(i){
+      this.selected=i
+this.editmode=true;
+    },
 
     saveTitle(item) {
  this._updateBoardMetadata(item.boardid,item.title,'renameboard')
@@ -262,6 +281,7 @@ _updateBoardMetadata(boardid,data,endpoint) {
 deleteBoard(boardid){
 
       this.$axios.get('/deleteboard/'+boardid).then(response => { 
+        this.editmode=false;
     for( var i = 0; i < this.boards.length; i++){ 
     
         if ( this.boards[i].boardid === boardid) { 
@@ -323,7 +343,6 @@ console.log(response.status)
 
 
 this.boards=response.data;
-
    //     alert(response.data);
         /*
 	 this.$stor.dispatch('snackbar/setSnackbar',{text:$t('registered')})
@@ -332,7 +351,7 @@ this.boards=response.data;
 }
 )
 .catch(error => {
- if(error.response.status==301){
+ if(error.status==301){
    this.$router.push('/user/me')
 } else {
 
