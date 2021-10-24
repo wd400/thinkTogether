@@ -2,7 +2,7 @@
 <body   >
 	<div id="page" style="background-color:white;">
 		<div id="mainActions"
-			style="width:100%;padding-top:8px;padding-bottom:8px;padding-left:16px;">
+			style="text-align:right;width:100%;padding-top:8px;padding-bottom:8px;padding-left:20px;">
 			<!--
 			<input id="ParallelEdge"
        type="button"
@@ -75,13 +75,6 @@
 							<img src="images/loading.gif">
 						</center>
 
-
-
-
-
-
-		
-
 					</div>
 					
 					
@@ -90,10 +83,13 @@
 
 					<textarea id="xml" style="height:480px;width:684px;display:none;border-style:none;"></textarea>
 					-->
+					<h6>  {{$t('right_click_tips')}}      <span v-if="!$auth.loggedIn">({{$t('need_login')}})</span></h6>
 				</td>
-			</tr>
+				    
 			
-		     
+		
+			</tr>
+     
 		</table>
 		
 <!--
@@ -102,9 +98,10 @@
 			<input id="source" type="checkbox"/>Source
 		</span>
 		-->
-    
 
-<div style="padding-left:16px;">
+	</div>
+
+	<div style="text-align:right;">
 
 	           <v-btn x-small id="zoomIn"
        >{{$t('zoomIn')}}</v-btn>
@@ -117,18 +114,16 @@
 
 	   	           <v-btn x-small id="fit"
        >{{$t('fit')}}</v-btn>
-	   
-
 <v-btn  v-if="editmode" id="saveid"  >
       <v-icon>mdi-content-save</v-icon>
-    </v-btn>
-	</div>
+</v-btn>
 
+     
 	</div>
 
 	
 	<div :gotoCell="gotoCell" v-if="showSuggestion">
-<v-btn
+<v-btn icon
       @click="FshowSuggestion()" 
     >
       <v-icon>mdi-close</v-icon>
@@ -147,6 +142,7 @@
 
     <Report :callback="cellReported" reportType="cell" :cellId="cellId" :id="boardId" />
 	</div>
+
 </body>
 
 </template>

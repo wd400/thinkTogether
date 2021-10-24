@@ -9,26 +9,22 @@
     <XmlViewer :gotoCell="gotoCell" :boardId="boardId" :editmode="owned" :xml="xml" v-if="xml!=null && owned!=null"/>
   
     </client-only>
-     <h5>  {{$t('right_click_tips')}} </h5>
-     <h5 v-if="!$auth.loggedIn">({{$t('need_login')}})</h5>
+
 </div>
              
             <br>
 <v-col>
-    <v-col >
-                  <v-btn x-small icon
-  
+    <v-col align-self="stretch">
+
+<v-row align="center" dense="true">
+<v-btn  icon
    @click="gotoUser()"  v-if="! owned && userid!=null" >
       <v-icon >mdi-account</v-icon>
             </v-btn>
-    <h3> {{title}}</h3>
-        <h4 v-if="userid!=null">
-
-        </h4>
-
-           <h4>
-               {{description}}
-           </h4>
+    <h2>{{title}}</h2>
+</v-row>
+<v-divider/>
+           <h4>{{description}} </h4>
      
      <!-- report board -->
      <v-btn x-small
@@ -48,11 +44,13 @@
 
 
 	</div>
-    </v-col>
+    
     <br>
      <ListSuggestion :gotoCell="gotoCell" :boardId="boardId" v-if="owned" />
 <br>
     <InvitedList :boardid="boardId" v-if="owned" />
+</v-col>
+
 </v-col>
 
 

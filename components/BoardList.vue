@@ -8,11 +8,13 @@
   >
  
     <v-list 
+       class="overflow-y-auto"
     
   >
-                  <v-list-item-title class="text-h6" >
-            {{$t('graph_list')}}
+                  <v-list-item-title >
+          <h1>  {{$t('graph_list')}}</h1>
             </v-list-item-title>
+            <v-divider/>
       <v-list-item-group
         color="primary"
       >
@@ -90,7 +92,7 @@
 
 <v-spacer/>
 
-<v-btn icon
+<v-btn icon x-large
       @click="gotoBoard(item.boardid)"
     >
       <v-icon>mdi-eye</v-icon>

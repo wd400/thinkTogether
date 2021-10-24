@@ -17,7 +17,7 @@
       >
 
 
-<div>
+
         <v-list-item
           v-for="(item, i) in invited"
           :key="i"
@@ -34,23 +34,21 @@
           </v-btn>
         </v-list-item-action>
         </v-list-item>
-</div>
 
 
 
- <v-text-field
- v-model="newPseudo"
-            :label="$t('new_pseudo')"
-          ></v-text-field>
-
- <v-btn icon @click="invite()"  >
-            <v-icon >mdi-account-plus</v-icon>
-          </v-btn>
 
 
 
       </v-list-item-group>
+        <h5 v-if="invited.length==0">{{$t('no_guests')}}</h5>
     </v-list>
+     <v-text-field
+ v-model="newPseudo"
+            :label="$t('new_pseudo')"
+            prepend-icon="mdi-account-plus"
+            @keydown.enter="invite"
+          ></v-text-field>
 
   </div>
 </template>

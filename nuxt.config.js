@@ -155,7 +155,9 @@ export default {
          here:'here',
          graph_list:'Graph list',
          notice_location:'A short notice can be found',
-         footer:'Alpha version, bug reports and suggestions are welcome via github or discord!'
+         footer:'Alpha version, bug reports and suggestions are welcome via github or discord!',
+         no_guests:'No guests',
+         no_invitations:'No invitations',
 
          
         },

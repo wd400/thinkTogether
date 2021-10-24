@@ -1,8 +1,8 @@
 <template>
 <div>
   <br>
-<v-layout column wrap >
-    <v-layout row justify-center>
+<v-layout column wrap  >
+    <v-layout row justify-center align-center>
 <v-flex xs2 md3>
         <h3>{{$t('rename_user')}}</h3>  
 </v-flex>
@@ -29,7 +29,7 @@
 
     </v-layout >
 
-    <v-layout row justify-center>
+    <v-layout row justify-center align-center>
 <v-flex xs2 md3>
         <h3>{{$t('change_mail')}}</h3>  
 </v-flex>
@@ -56,7 +56,7 @@
 
     </v-layout >
 
-    <v-layout row justify-center>
+    <v-layout row justify-center align-center>
 <v-flex xs2 md3 >
         <h3>{{$t('change_password')}}</h3>
         
@@ -74,7 +74,7 @@
 
     </v-layout >
 
-    <v-layout row justify-center>
+    <v-layout row justify-center align-center>
 
      <v-flex xs2 md3 >
         <h3>{{$t('delete_account')}}</h3>

@@ -1,9 +1,8 @@
 <template>
 
     <v-col  >
-      <h2>{{$t('search_header')}}</h2>
+      <h1>{{$t('search_header')}}</h1>
       <br>
-        <v-row  justify="center">
                   <v-text-field
             :label="$t('search')"
             @keydown.enter.prevent="search"
@@ -11,7 +10,7 @@
             append-icon="mdi-magnify"
           ></v-text-field>
 
-        </v-row>
+        
          
     <v-list v-if="results.length>0"
     
@@ -50,10 +49,8 @@
 
       </v-list-item-group>
     </v-list>
-<br>
-<v-row v-if="results.length==0">
-  <h3>{{$t('no_results')}}</h3>
-</v-row>
+  <h3 v-if="results.length==0">{{$t('no_results')}}</h3>
+
     <v-row v-else justify="center">
       
         <v-btn 

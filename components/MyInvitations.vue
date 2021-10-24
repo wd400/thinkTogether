@@ -17,7 +17,6 @@
       >
 
 
-<div>
         <v-list-item
           v-for="(item, i) in invitations"
           :key="i"
@@ -34,10 +33,11 @@
           </v-btn>
         </v-list-item-action>
         </v-list-item>
-</div>
+
 
 
       </v-list-item-group>
+        <h5 v-if="invitations.length==0">{{$t('no_invitations')}}</h5>
     </v-list>
 
   </div>
