@@ -1,14 +1,7 @@
 <template>
 <body   >
-	<div id="page" style="background-color:white;">
-		<div id="mainActions"
-			style="text-align:right;width:100%;padding-top:8px;padding-bottom:8px;padding-left:20px;">
-			<!--
-			<input id="ParallelEdge"
-       type="button"
-       value="Parallel Edge"> -->
-       
-        <v-btn x-small id="OrganicLayout" v-if="editmode"
+	<div style="text-align:right;">
+	        <v-btn x-small id="OrganicLayout" v-if="editmode"
        >{{$t('organic_layout')}}</v-btn>
 
 	           <v-btn x-small id="cut" v-if="editmode"
@@ -35,28 +28,28 @@
 
 	   	   	           <v-btn x-small id="show"
        >{{$t('show')}}</v-btn>
+	</div>
 
-<!--
-        <input id="debug"
-       type="button"
-       value="debug">
-	   -->
-			
-		</div>
+
+
+	<div id="page" >
 		
+		
+
 
 		
          
-		<table border="0" width="width:100%">
+		<table border="0" width="width:100%" style="background-color:white;">
 
 			<tr>
 			
 			
-			
-				<td id="toolbar" style="width:16px;" valign="top">
+								<td id="toolbar" style="width:16px;" valign="top" v-if="editmode">
 		
 								<!-- Toolbar Here -->				
 				</td>
+		
+
 				
 
 				
@@ -83,7 +76,7 @@
 
 					<textarea id="xml" style="height:480px;width:684px;display:none;border-style:none;"></textarea>
 					-->
-					<h6>  {{$t('right_click_tips')}}      <span v-if="!$auth.loggedIn">({{$t('need_login')}})</span></h6>
+					<h6 style="color:black;">  {{$t('right_click_tips')}}      <span v-if="!$auth.loggedIn">({{$t('need_login')}})</span></h6>
 				</td>
 				    
 			
@@ -98,11 +91,15 @@
 			<input id="source" type="checkbox"/>Source
 		</span>
 		-->
+	<v-row align="center" dense>
+	  <v-switch
+      flat
+	  v-model="autoSave"
+      :label="$t('autosave')"
+	  v-on:change="toggleAutoSave"
+    ></v-switch>
 
-	</div>
-
-	<div style="text-align:right;">
-
+<v-spacer/>
 	           <v-btn x-small id="zoomIn"
        >{{$t('zoomIn')}}</v-btn>
 
@@ -119,6 +116,7 @@
 </v-btn>
 
      
+	</v-row>
 	</div>
 
 	
@@ -193,7 +191,8 @@ props:{
 	   reportCell:null,
 	   cellId:null,
 	   showSuggestion:false,
-	   intervalId:null
+	   intervalId:null,
+	   autoSave:false
 
     }
 			  },
@@ -243,6 +242,26 @@ suggestCallback(id) {
 this.cellId=parseInt(id);
 this.showSuggestion=true;
 },
+toggleAutoSave() {
+ //  this.autoSave=!this.autoSave;
+   localStorage.setItem("useAutoSave", this.autoSave.toString())
+   if (this.autoSave){
+this.startAutoSave()
+   } else {
+	   this.stopAutoSave()
+   }
+    },
+	startAutoSave(){
+		this.intervalId = setInterval(function() {
+  document.getElementById("saveid").click(); 
+}, 1000*60);
+	},
+	stopAutoSave(){
+if (this.intervalId!=null){
+		clearInterval(this.intervalId);
+	}
+	}
+
 
 
 
@@ -286,6 +305,8 @@ document.head.appendChild(appScript)
 	  };
 	  document.head.appendChild(mxScript)
 
+	     const initautoSave = localStorage.getItem("useAutoSave");
+
 	//  appScript.innerHTML=`createEditor('/mxgraph/examples/editors/config/diagrameditor.xml','${escape(this.xml)}')`
 
 	
@@ -296,16 +317,22 @@ document.head.appendChild(appScript)
 		document.head.appendChild(test)
 		
 */
+if (initautoSave=="true"){
+this.autoSave=true
+this.startAutoSave()
 
-this.intervalId = setInterval(function() {
-  document.getElementById("saveid").click(); 
-}, 1000*60*3);
+} else {
+	this.autoSave=false
+this.stopAutoSave()
+}
+ },
 
-    },
+
+
+
+   
 	beforeDestroy(){
-		if (this.intervalId!=null){
-		clearInterval(this.intervalId);
-	}
+		this.stopAutoSave()
 	}
 
 }

@@ -71,6 +71,9 @@ export default {
     },
     created() {
        window.addEventListener('beforeunload', this.beforeWindowUnload)
+
+
+
       if (this.$route.params.board=="random") {
 
 this.boardId="random"
@@ -161,17 +164,13 @@ this.showReport=false
        gotoUser() {
          if (this.owned){
 this.$router.push('/user/me')
-         } else{
+         } else {
   this.$router.push('/user/'+this.userid)
          }
 },
 				  boardReported(){
 					  this.showReport=false;
 				  },
-
-
-
-
 
      }
 }

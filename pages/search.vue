@@ -76,8 +76,9 @@
     </v-list>
   <h3 v-if="results.length==0">{{$t('no_results')}}</h3>
 
-    <v-row v-else justify="center">
-      
+    <span v-else >
+      <br>
+     <v-row justify="center">
         <v-btn 
       @click="decrement()" 
       :disabled="pageNumber==0"
@@ -97,6 +98,7 @@
     </v-btn>
 
     </v-row>
+    </span>
 
     </v-container>
 

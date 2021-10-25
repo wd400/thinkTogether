@@ -42,13 +42,14 @@
 
       </v-list-item-group>
         <h5 v-if="invited.length==0">{{$t('no_guests')}}</h5>
-    </v-list>
-     <v-text-field
+             <v-text-field
  v-model="newPseudo"
             :label="$t('new_pseudo')"
             prepend-icon="mdi-account-plus"
             @keydown.enter="invite"
           ></v-text-field>
+    </v-list>
+
 
   </div>
 </template>

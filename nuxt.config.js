@@ -39,6 +39,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+ //   '@assets/main.css'
   //  './node_modules/material-design-icons-iconfont/dist/material-design-icons.css'
   //  '@mdi/font/css/materialdesignicons.min.css'
   ],
@@ -55,6 +56,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+ //   '@nuxtjs/color-mode',
   //  ['@nuxtjs/vuetify', { iconfont: 'mdi' }]
   ],
 
@@ -169,7 +171,8 @@ export default {
          general_reflection:'General reflection',
          personal_reflection:'Personal reflection',
          science:'Science & Math',
-         science_reasoning: 'Science & Math reasoning'
+         science_reasoning: 'Science & Math reasoning',
+         autosave:'Save each min.'
          
 
 
@@ -187,8 +190,10 @@ export default {
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    /*
     theme: {
-      light: true,
+   //   light: true,
+   
       themes: {
         dark: {
           primary: colors.blue.darken2,
@@ -210,7 +215,9 @@ export default {
         },
         
       }
+      
     }
+    */
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

@@ -27,7 +27,6 @@
     </v-navigation-drawer>
     -->
     <v-app-bar
-      :clipped-left="clipped"
       fixed
       app
     >
@@ -67,6 +66,13 @@
      <v-btn text @click="gotoMe()">{{$t('me')}}</v-btn>
        </div> 
       <v-spacer />
+
+      <v-btn icon @click="toggleTheme()">
+
+ <v-icon>mdi-theme-light-dark</v-icon>
+
+
+      </v-btn>
 
 <div v-if="$auth.loggedIn">
 
@@ -147,7 +153,6 @@ export default {
   components: { Snackbar },
   data () {
     return {
-      clipped: false,
       drawer: false,
       fixed: false,
       items: [
@@ -168,7 +173,23 @@ export default {
       title: 'Vuetify.js'
     }
   },
+  mounted() {
+  const theme = localStorage.getItem("useDarkTheme");
+    if (theme) {
+      if (theme == "true") {
+        this.$vuetify.theme.dark = true;
+      } else this.$vuetify.theme.dark = false;
+    }
+
+
+
+
+},
   methods:{
+    toggleTheme() {
+   this.$vuetify.theme.dark=!this.$vuetify.theme.dark;
+   localStorage.setItem("useDarkTheme", this.$vuetify.theme.dark.toString())
+    },
     
        gotoRandom(){
 
