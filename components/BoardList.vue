@@ -76,6 +76,7 @@
 </v-row>
 
 <v-row align="center" >
+
 <v-btn icon
       @click="deleteBoard(boards[selected].boardid)"
     >
@@ -83,7 +84,8 @@
     </v-btn>
 
     <v-spacer/>
-
+<v-col>
+  <v-row>
     <v-checkbox
       v-model="boards[selected].public"
 
@@ -102,8 +104,23 @@
       :disabled="!boards[selected].public"
       v-on:change="changeAnonym(boards[selected])"
     ></v-checkbox>
+  </v-row>
 
 
+
+    <v-select style="width: 250px;"
+          v-model="boards[selected].cat"
+    
+          :items="catlist"
+          item-text="state"
+          item-value="abbr"
+          :hint="$t('category')"
+          persistent-hint
+          return-object
+          single-line
+          v-on:change="changeCat(boards[selected])"
+        ></v-select>
+</v-col>
 
 </v-row>
 </v-col>
@@ -185,6 +202,20 @@ v-if="newBoardTemplate"
       v-model="newIsAnonym"
       :label="$t('anonym')"
     ></v-checkbox>
+    <v-spacer/>
+        <v-select
+          v-model="newCat"
+    required
+          :items="catlist"
+          item-text="state"
+          item-value="abbr"
+
+          :hint="$t('category')"
+          persistent-hint
+          return-object
+          single-line
+          :rules="[(v) => !!v || 'Gender is required']"
+        ></v-select>
   </v-row>
   <v-row>
              <v-btn
@@ -199,6 +230,9 @@ v-if="newBoardTemplate"
       </v-btn>
  
   </v-row>
+
+
+
   </v-col>
 </v-container>
 
@@ -222,8 +256,18 @@ export default{
         newDescription:'',
         newIsPublic:true,
         newIsAnonym:false,
+        newCat:0,
         selected:-1,
         editmode:false,
+
+        catlist: [
+            { state: this.$t('other'), abbr: 0 },
+          { state: this.$t('general_reflection'), abbr: 1 },
+          { state: this.$t('personal_reflection'), abbr: 2 },
+          { state: this.$t('science'), abbr: 3 },
+
+        ],
+
       }
     },
 
@@ -257,6 +301,10 @@ changePublic(item){
 },
 changeAnonym(item){
      this._updateBoardMetadata(item.boardid,item.anonym,'changeanonym')
+
+},
+changeCat(item){
+     this._updateBoardMetadata(item.boardid,item.cat.abbr,'changecat')
 
 },
 
@@ -312,15 +360,16 @@ closeNewBoard(){
   this.newDescription=''
   this.newIsPublic=true
   this.newIsAnonym=false
+  this.newCat=0
 },
 sumbitNewBoard(){
 
 
     this.$axios.post('/newboard',
-    {'title':this.newTitle,'description':this.newDescription,'public':this.newIsPublic,'anonym':this.newIsAnonym}
+    {'title':this.newTitle,'description':this.newDescription,'public':this.newIsPublic,'anonym':this.newIsAnonym,'cat':this.newCat}
     ).then(response => { 
 
-   this.boards.push({'boardid':response.data.boardid,'title':this.newTitle,'description':this.newDescription})
+   this.boards.push({'boardid':response.data.boardid,'title':this.newTitle,'description':this.newDescription,'cat':this.newCat})
         /*
 	 this.$stor.dispatch('snackbar/setSnackbar',{text:$t('registered')})
       this.$router.push('/')

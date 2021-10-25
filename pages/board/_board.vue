@@ -20,9 +20,10 @@
 <v-btn  icon
    @click="gotoUser()"  v-if="! owned && userid!=null" >
       <v-icon >mdi-account</v-icon>
-            </v-btn>
-    <h2>{{title}}</h2>
+         </v-btn>
+    <h3>{{cat2text[cat]}}</h3>
 </v-row>
+<h1>{{title}}</h1>
 <v-divider/>
            <h4>{{description}} </h4>
      
@@ -97,7 +98,13 @@ this.boardId="random"
       boardid:null,
       showReport:false,
       gotoCell:{},
-      loaded:false
+      loaded:false,
+          cat2text:{
+      0:this.$t('other'),
+      1:this.$t('general_reflection'),
+      2:this.$t('personal_reflection'),
+      3:this.$t('science')
+    },
 
     }
   },
@@ -112,6 +119,7 @@ this.userid=response.data.userid;
 this.title=response.data.title;
 this.description=response.data.description;
 this.xml=response.data.xml;
+this.cat=response.data.cat;
 
 if (this.boardId=="random"){
   this.boardId=response.data.boardid

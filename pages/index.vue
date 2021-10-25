@@ -25,7 +25,7 @@
 
 
           <hr class="my-3">
-          <p>{{$t('long_term')}}</p>
+   <!--       <p>{{$t('long_term')}}</p> -->
           <p>{{$t('data_access_msg')}} 
 <a
               href="https://github.com/wd400/thinkTogether/releases/"

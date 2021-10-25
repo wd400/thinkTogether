@@ -162,7 +162,15 @@ export default {
          no_guests:'No guests',
          no_invitations:'No invitations',
          no_graphs:'No graphs',
-         edit_properties:'Edit properties'
+         edit_properties:'Edit properties',
+         category:'Category',
+         all:'All',
+         other:'Other',
+         general_reflection:'General reflection',
+         personal_reflection:'Personal reflection',
+         science:'Science & Math',
+         
+
 
          
         },

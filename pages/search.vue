@@ -1,14 +1,38 @@
 <template>
 
-    <v-col  >
+    <v-container  >
       <h1>{{$t('search_header')}}</h1>
       <br>
+
+       <v-row align="center">
+
                   <v-text-field
             :label="$t('search')"
             @keydown.enter.prevent="search"
             v-model="query"
-            append-icon="mdi-magnify"
           ></v-text-field>
+                <v-col
+          cols="6"
+          sm="3"
+        >
+              <v-select 
+    v-model="currentCat"
+          :items="catlist"
+          item-text="state"
+          item-value="abbr"
+          :hint="$t('category')"
+          persistent-hint
+          return-object
+          single-line
+        ></v-select>
+                </v-col>
+
+                <v-btn icon
+      @click="search()"
+    >
+      <v-icon>mdi-magnify</v-icon>
+    </v-btn>
+       </v-row>
 
         
          
@@ -33,6 +57,7 @@
         >
          <v-list-item-content   @click="gotoBoard(item.boardid)">
                   <v-list-item-title v-text="item.title"  ></v-list-item-title>
+                  <v-list-item-subtitle class="text--primary" v-text="cat2text[item.cat]"></v-list-item-subtitle>
 {{item.description}}
 </v-list-item-content>
 
@@ -73,7 +98,7 @@
 
     </v-row>
 
-    </v-col>
+    </v-container>
 
 </template>
 <script>
@@ -87,7 +112,26 @@ return {
     pageNumber:0,
     results:[],
     query:'',
-    previousquery:''
+    previousquery:'',
+    currentCat:{abbr:-1},
+    cat2text:{
+      0:this.$t('other'),
+      1:this.$t('general_reflection'),
+      2:this.$t('personal_reflection'),
+      3:this.$t('science')
+    },
+
+    catlist: [
+      { state: this.$t('all'), abbr: -1 },
+            
+          { state: this.$t('general_reflection'), abbr: 1 },
+          { state: this.$t('personal_reflection'), abbr: 2 },
+          { state: this.$t('science'), abbr: 3 },
+          { state: this.$t('other'), abbr: 0 },
+
+        ],
+
+
 }
     },
     methods:{
@@ -116,8 +160,7 @@ search(){
     }
 
 //.normalize("NFD").replace(/[\u0300-\u036f]/g, "")s
-this.$axios.post('/search',{'query':this.query,'page':this.pageNumber}).then(response => { 
-
+this.$axios.post('/search',{'query':this.query,'cat':this.currentCat.abbr,'page':this.pageNumber}).then(response => { 
 
 
 this.results=response.data;
