@@ -10,10 +10,8 @@
   
     </client-only>
 
-</div>
-             
-            <br>
-<v-col>
+</div>           
+<v-col >
     <v-col align-self="stretch">
 
 <v-row align="center" :dense="true">
@@ -21,11 +19,11 @@
    @click="gotoUser()"  v-if="! owned && userid!=null" >
       <v-icon >mdi-account</v-icon>
          </v-btn>
-    <h3>{{cat2text[cat]}}</h3>
+    <h3 v-if="loaded">{{cat2text[cat]}}</h3>
 </v-row>
-<h1>{{title}}</h1>
+<h2>{{title}}</h2>
 <v-divider/>
-           <h4>{{description}} </h4>
+           <h4 style="white-space: pre;">{{description}} </h4>
      
      <!-- report board -->
      <v-btn x-small
@@ -99,6 +97,7 @@ this.boardId="random"
       showReport:false,
       gotoCell:{},
       loaded:false,
+      cat:null,
           cat2text:{
       0:this.$t('other'),
       1:this.$t('general_reflection'),
