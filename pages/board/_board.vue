@@ -23,7 +23,7 @@
 </v-row>
 <h2>{{title}}</h2>
 <v-divider/>
-           <h4 style="white-space: pre;">{{description}} </h4>
+           <h4 style="white-space: pre-wrap;">{{description}} </h4>
      
      <!-- report board -->
      <v-btn x-small
@@ -70,6 +70,7 @@ export default {
         UserAuthForm
     },
     created() {
+       window.addEventListener('beforeunload', this.beforeWindowUnload)
       if (this.$route.params.board=="random") {
 
 this.boardId="random"
@@ -89,6 +90,7 @@ this.boardId="random"
     return {
       isauthor: null,
       xml:null,
+      initialxml:null,
       owned:null,
       userid:null,
       title:null,
@@ -148,6 +150,7 @@ this.loaded=true;
 
 
      },
+
      methods:{
        TShowReport(){
 this.showReport=true
@@ -165,6 +168,11 @@ this.$router.push('/user/me')
 				  boardReported(){
 					  this.showReport=false;
 				  },
+
+
+
+
+
      }
 }
 </script>

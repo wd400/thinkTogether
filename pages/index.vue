@@ -18,6 +18,7 @@
           <li>{{$t('dilemmas')}}</li>
           <li>{{$t('action_process')}}</li>
           <li>{{$t('personnal_problems')}}</li>
+          <li>{{$t('science_reasoning')}}</li>
           </ul>
            <br>
            {{$t('explore_msg')}}

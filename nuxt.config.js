@@ -169,6 +169,7 @@ export default {
          general_reflection:'General reflection',
          personal_reflection:'Personal reflection',
          science:'Science & Math',
+         science_reasoning: 'Science & Math reasoning'
          
 
 

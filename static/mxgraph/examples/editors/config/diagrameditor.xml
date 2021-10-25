@@ -117,6 +117,7 @@
 				return mxUtils.isNode(this.model.getValue(cell), 'container');
 			}
 		]]></add>
+		<!--
 		<add as="getTooltipForCell"><![CDATA[
 			function(cell)
 			{
@@ -130,6 +131,7 @@
 						'<br>Children: ' + cell.getChildCount();
 			}
 		]]></add>
+		-->
 		<add as="convertValueToString"><![CDATA[
 			function(cell)
 			{

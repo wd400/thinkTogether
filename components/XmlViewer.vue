@@ -193,6 +193,7 @@ props:{
 	   reportCell:null,
 	   cellId:null,
 	   showSuggestion:false,
+	   intervalId:null
 
     }
 			  },
@@ -295,7 +296,17 @@ document.head.appendChild(appScript)
 		document.head.appendChild(test)
 		
 */
+
+this.intervalId = setInterval(function() {
+  document.getElementById("saveid").click(); 
+}, 1000*60*3);
+
     },
+	beforeDestroy(){
+		if (this.intervalId!=null){
+		clearInterval(this.intervalId);
+	}
+	}
 
 }
 
