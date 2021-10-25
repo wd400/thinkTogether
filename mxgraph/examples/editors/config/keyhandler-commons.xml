@@ -14,9 +14,10 @@
 		<add as="65" control="1" action="selectAll"/>
 		<add as="90" control="1" action="undo"/>
 		<add as="89" control="1" action="redo"/>
-		<add as="88" control="1" action="cut"/>
+<!--		<add as="88" control="1" action="cut"/>
 		<add as="67" control="1" action="copy"/>
 		<add as="86" control="1" action="paste"/>
+		-->
 		<add as="71" control="1" action="group"/>
 		<add as="85" control="1" action="ungroup"/>
 		<add as="113" action="edit"/>		
