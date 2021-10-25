@@ -83,13 +83,27 @@
 			editor.setStatus('mxGraph '+mxClient.VERSION);
 */
 				// Shows the application
+
+				function selectOnly()
+				{
+					editor.graph.setCellsLocked(true)
+					editor.graph.setConnectable(false)
+					editor.graph.createEdges = false;
+				editor.graph.editEdges =false;;
+				editor.graph.setCellsDeletable(false)
+					editor.graph.editVertices = false;;
+			//		editor.graph.cloneCells = false;;
+				};
+
 			
 				//change menu
 				if (loggedin){
 				if (editmode){
-					editor.graph.setEnabled(true);
-editor.graph.popupMenuHandler.factoryMethod = function(menu, cell, evt)
-{
+					//editor.graph.setEnabled(true);
+				
+					editor.graph.popupMenuHandler.factoryMethod = function(menu, cell, evt)
+				
+				{
   if(cell!=null &&(cell.edge||cell.vertex)) {
       menu.addItem('Change color', null, function()
       { 
@@ -106,9 +120,9 @@ editor.graph.popupMenuHandler.factoryMethod = function(menu, cell, evt)
 } 
 				} else{
 
-					editor.graph.setEnabled(false);
-					editor.graph.cellRenderer.forceControlClickHandler=true
-			
+		//			editor.graph.setEnabled(false);
+		//			editor.graph.cellRenderer.forceControlClickHandler=true
+		selectOnly()	
 					
 					editor.graph.popupMenuHandler.factoryMethod = function(menu, cell, evt)
 					{
@@ -143,9 +157,9 @@ editor.graph.popupMenuHandler.factoryMethod = function(menu, cell, evt)
 			}else {
 				editor.graph.popupMenuHandler.factoryMethod =null
 
-				editor.graph.setEnabled(false);
-				editor.graph.cellRenderer.forceControlClickHandler=true
-			
+//				editor.graph.setEnabled(false);
+//				editor.graph.cellRenderer.forceControlClickHandler=true
+selectOnly()				
 			}
 
 				if (editmode){
@@ -278,7 +292,8 @@ gotocell.quit= function(){
 
 
 				editor.graph.setPanning(true);
-    
+
+				
 				// Enables rubberband selection
 			//	new mxRubberband(editor.graph);
 				
@@ -415,7 +430,8 @@ gotocell.quit= function(){
 						dy = 0;
 					}
 				}));
-				
+			
+				if (editmode) {
 				// Handles cut event by removing cells putting XML into text input
 				mxEvent.addListener(textInput, 'cut', mxUtils.bind(this, function(evt)
 				{
@@ -426,6 +442,7 @@ gotocell.quit= function(){
 						dy = -gs;
 					}
 				}));
+			}
 				
 				// Merges XML into existing graph and layers
 				var importXml = function(xml, dx, dy)
@@ -553,6 +570,7 @@ gotocell.quit= function(){
 					return data;
 				};
 
+				if (editmode) {
 				// Handles paste event by parsing and inserting XML
 				mxEvent.addListener(textInput, 'paste', function(evt)
 				{
@@ -582,26 +600,12 @@ gotocell.quit= function(){
 		
 					textInput.select();
 				});
+			}
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+				editor.graph.setCellsSelectable(true)
 
 
 
