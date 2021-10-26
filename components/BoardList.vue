@@ -256,7 +256,7 @@ export default{
         newDescription:'',
         newIsPublic:true,
         newIsAnonym:false,
-        newCat:0,
+        newCat:{ state: this.$t('other'), abbr: 0 },
         selected:-1,
         editmode:false,
 
@@ -360,16 +360,16 @@ closeNewBoard(){
   this.newDescription=''
   this.newIsPublic=true
   this.newIsAnonym=false
-  this.newCat=0
+  this.newCat={ state: this.$t('other'), abbr: 0 }
 },
 sumbitNewBoard(){
 
 
     this.$axios.post('/newboard',
-    {'title':this.newTitle,'description':this.newDescription,'public':this.newIsPublic,'anonym':this.newIsAnonym,'cat':this.newCat}
+    {'title':this.newTitle,'description':this.newDescription,'public':this.newIsPublic,'anonym':this.newIsAnonym,'cat':this.newCat.abbr}
     ).then(response => { 
 
-   this.boards.push({'boardid':response.data.boardid,'title':this.newTitle,'description':this.newDescription,'cat':this.newCat})
+   this.boards.push({'boardid':response.data.boardid,'title':this.newTitle,'description':this.newDescription,'cat':this.newCat.abbr})
         /*
 	 this.$stor.dispatch('snackbar/setSnackbar',{text:$t('registered')})
       this.$router.push('/')

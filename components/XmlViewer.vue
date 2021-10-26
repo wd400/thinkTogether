@@ -84,23 +84,19 @@
 			</tr>
      
 		</table>
-		
-<!--
-
-		<span >
-			<input id="source" type="checkbox"/>Source
-		</span>
-		-->
-	<v-row align="center" dense>
-	  <v-switch
-      flat
+						<v-row >
+					<v-col>
+	<v-switch flat style="padding-left:16px;"
 	  v-model="autoSave"
       :label="$t('autosave')"
 	  v-on:change="toggleAutoSave"
+	  v-if="editmode"
     ></v-switch>
-
-<v-spacer/>
-	           <v-btn x-small id="zoomIn"
+					</v-col>
+	<v-col>
+					<v-container style="text-align:right;" >
+	
+	           <v-btn  x-small id="zoomIn"
        >{{$t('zoomIn')}}</v-btn>
 
 	   	           <v-btn x-small id="zoomOut"
@@ -111,13 +107,26 @@
 
 	   	           <v-btn x-small id="fit"
        >{{$t('fit')}}</v-btn>
+	   
 <v-btn  v-if="editmode" id="saveid"  >
       <v-icon>mdi-content-save</v-icon>
 </v-btn>
+					</v-container>	
+	</v-col>
+	
+		</v-row>
+		
+<!--
 
-     
-	</v-row>
-	</div>
+		<span >
+			<input id="source" type="checkbox"/>Source
+		</span>
+		start, center, end, baseline and stretch.
+		 start, center, end, space-between, space-around and stretch.
+		-->
+</div>
+
+
 
 	
 	<div :gotoCell="gotoCell" v-if="showSuggestion">
