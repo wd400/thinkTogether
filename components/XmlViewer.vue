@@ -149,7 +149,6 @@
 
     <Report :callback="cellReported" reportType="cell" :cellId="cellId" :id="boardId" />
 	</div>
- <div><p>$$h=10$$</p></div>
 </body>
 
 </template>
