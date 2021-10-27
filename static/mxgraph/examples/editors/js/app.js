@@ -340,14 +340,31 @@ gotocell.quit= function(){
 
 				// Workaround for no copy event in IE/FF if empty
 				textInput.value = ' ';
+
+				function getSelText()
+{
+    if (window.getSelection)
+    {
+        return window.getSelection();
+    }
+    else if (document.getSelection)
+    {
+        return document.getSelection();
+    }
+    else if (document.selection)
+    {
+        return document.selection.createRange().text;
+    }
+    else return "";
+}
 			
 				// Shows a textare when control/cmd is pressed to handle native clipboard actions
 				mxEvent.addListener(document, 'keydown', function(evt)
 				{
 					// No dialog visible
 					var source = mxEvent.getSource(evt);
-					
-					if (editor.graph.isEnabled() && !editor.graph.isMouseDown && !editor.graph.isEditing() && source.nodeName != 'INPUT')
+			//		alert(getSelText())
+					if (editor.graph.isEnabled() && !editor.graph.isMouseDown && !editor.graph.isEditing() && source.nodeName != 'INPUT' && getSelText() == "")
 					{
 						if (evt.keyCode == 224 || (!mxClient.IS_MAC && evt.keyCode == 17 ) ||
 							(mxClient.IS_MAC && (evt.keyCode == 91 || evt.keyCode == 93)))
@@ -602,6 +619,30 @@ gotocell.quit= function(){
 				});
 			}
 
+
+			/*
+			const latexScript ='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML'
+	  
+			let appScript = document.createElement('script')
+			appScript.src=latexScript
+			appScript.onload=function(){
+				
+
+				editor.graph.addListener(mxEvent.EDITING_STOPPED, function (evt) {
+					alert(evt)
+					window.MathJax.Hub.Queue(["Typeset",window.MathJax.Hub,document.getElementById('page')])
+		//	window.MathJax.typeset()
+			//		editor.graph.popupMenuHandler.hideMenu()
+				
+				});
+			};
+			document.head.appendChild(appScript)
+*/
+
+
+
+
+			//		loadScript(latexScript)
 
 
 

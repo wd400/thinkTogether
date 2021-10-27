@@ -6,10 +6,11 @@
       <v-card-title class="headline">
        <v-icon left large>mdi-thought-bubble</v-icon> 
      <h2>  thinkTogether </h2>
-       <v-card-subtitle>
-        <h4>  {{$t('app_description')}} </h4>
-       </v-card-subtitle>
+
         </v-card-title>
+               <v-card-subtitle>
+        <h4>{{$t('app_description')}} </h4>
+       </v-card-subtitle>
         <v-card-text>
 
           <h4>{{$t('use_cases')}}</h4>

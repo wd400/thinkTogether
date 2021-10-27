@@ -176,6 +176,5 @@ this.$router.push('/user/me')
 }
 </script>
 
-<style scoped>
 
-</style>
+

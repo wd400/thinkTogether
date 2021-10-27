@@ -1,16 +1,23 @@
 <template>
 
     <v-container  >
+      <v-col>
+        <v-row justify="center">
       <h1>{{$t('search_header')}}</h1>
+        </v-row>
       <br>
 
-       <v-row align="center">
+       <v-row align="center"  justify="center">
 
+<v-col          cols="6"
+          sm="3"
+          >
                   <v-text-field
             :label="$t('search')"
             @keydown.enter.prevent="search"
             v-model="query"
           ></v-text-field>
+</v-col>
                 <v-col
           cols="6"
           sm="3"
@@ -35,7 +42,10 @@
        </v-row>
 
         
-         
+<v-row           cols="6"
+          sm="3"
+           align="center"  justify="center"
+          >         
     <v-list v-if="results.length>0"
     
   
@@ -74,11 +84,15 @@
 
       </v-list-item-group>
     </v-list>
-  <h3 v-if="results.length==0">{{$t('no_results')}}</h3>
+</v-row>
 
-    <span v-else >
-      <br>
+
+  
+  
      <v-row justify="center">
+         <h3 v-if="results.length==0">{{$t('no_results')}}</h3>
+           <span v-else >
+                 <br>
         <v-btn 
       @click="decrement()" 
       :disabled="pageNumber==0"
@@ -96,9 +110,10 @@
     >
       <v-icon>mdi-arrow-right</v-icon>
     </v-btn>
-
+ </span>
     </v-row>
-    </span>
+   
+      </v-col>
 
     </v-container>
 

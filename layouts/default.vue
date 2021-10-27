@@ -126,7 +126,7 @@
     </v-navigation-drawer>
 -->
   <Snackbar></Snackbar>
-  
+  <!--
     <v-footer
       :absolute="!fixed"
       app
@@ -142,7 +142,8 @@
 
      </h5>
     </v-footer>
-   
+   -->
+
   </v-app>
 </template>
 
@@ -222,3 +223,12 @@ this.$router.push('/register')
   }
 }
 </script>
+
+
+<style>
+.container{
+     max-width: 95vw;
+     margin-top: 13px;
+     padding:0px;
+  }
+</style>

@@ -62,7 +62,7 @@
 			
 				
 				
-					<div id="graph" tabindex="-1" style="position:relative;height:580px;width:784px;overflow:hidden;cursor:default;">
+					<div id="graph" tabindex="-1" style="position:relative;height:80vh;width:95vw;overflow:hidden;cursor:default;">
 						<!-- Graph Here -->
 						<center id="splash" style="padding-top:230px;">
 							<img src="images/loading.gif">
@@ -149,7 +149,7 @@
 
     <Report :callback="cellReported" reportType="cell" :cellId="cellId" :id="boardId" />
 	</div>
-
+ <div><p>$$h=10$$</p></div>
 </body>
 
 </template>
@@ -170,6 +170,19 @@ export default {
 	
   },
 
+*/
+/*
+head() {
+return {
+  script: [
+    {
+      src: "https://app.diagrams.net/math/MathJax.js?config=TeX-MML-AM_SVG-full",
+      body: true,
+	   callback: () => {alert(MathJax)}		,
+    },
+  ],
+    }
+},
 */
 
 
@@ -285,6 +298,10 @@ if (this.gotoCell.quit!=null){
     created() {
       let mxScript = document.createElement('script')
       mxScript.src='mxgraph/mxClient.js'
+
+
+
+
 	  let currentXml=this.xml
 	  let currentEditMode=this.editmode
 	  let save=this.saveCallback
@@ -310,6 +327,8 @@ document.head.appendChild(appScript)
 	appScript.onload= function(event=null){
 		
 	createEditor(xmlfile,currentXml,currentEditMode,save,reportCall,suggestCall,gotoc,loggedin)
+
+
 };
 	  };
 	  document.head.appendChild(mxScript)
