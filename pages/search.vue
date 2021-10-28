@@ -89,9 +89,10 @@
 
   
   
-     <v-row justify="center">
-         <h3 v-if="results.length==0">{{$t('no_results')}}</h3>
-           <span v-else >
+     <v-row  v-if="results.length==0"  justify="center">
+         <h3>{{$t('no_results')}}</h3>
+     </v-row>
+     <v-row v-else  justify="center">
                  <br>
         <v-btn 
       @click="decrement()" 
