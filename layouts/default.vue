@@ -29,6 +29,7 @@
     <v-app-bar
       fixed
       app
+      dense
     >
     <!--
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
@@ -58,18 +59,18 @@
          <!--
       <v-spacer />
     <v-toolbar-title v-text="title" /> -->
-     <v-btn text @click="gotoSearch()">{{$t('search')}}</v-btn>
-  <v-btn text @click="gotoRandom()">{{$t('random')}}</v-btn>
+     <v-btn small text @click="gotoSearch()">{{$t('search')}}</v-btn>
+  <v-btn small text @click="gotoRandom()">{{$t('random')}}</v-btn>
   
    
      <div v-if="$auth.loggedIn">
-     <v-btn text @click="gotoMe()">{{$t('me')}}</v-btn>
+     <v-btn small text @click="gotoMe()">{{$t('me')}}</v-btn>
        </div> 
       <v-spacer />
 
-      <v-btn icon @click="toggleTheme()">
+      <v-btn icon  @click="toggleTheme()">
 
- <v-icon>mdi-theme-light-dark</v-icon>
+ <v-icon >mdi-theme-light-dark</v-icon>
 
 
       </v-btn>
@@ -84,11 +85,11 @@
       </v-btn>
 
   
-   <v-btn text @click="logout()" >{{$t('logout')}}</v-btn>
+   <v-btn small text @click="logout()" >{{$t('logout')}}</v-btn>
   </div> 
   <div v-else>
-    <v-btn text @click="gotoLogin()">{{$t('login')}}</v-btn>
-    <v-btn text @click="gotoRegister()">{{$t('register')}}</v-btn>
+    <v-btn small text @click="gotoLogin()">{{$t('login')}}</v-btn>
+    <v-btn small text @click="gotoRegister()">{{$t('register')}}</v-btn>
 </div>
 <!--
       <v-btn
@@ -100,7 +101,7 @@
       -->
     </v-app-bar >
     <v-main > 
-      <v-container  :class="{'mx-0':$route.fullPath.substring(0, 7)=='/board/'}" >
+      <v-container  :class="{'mx-0':$route.fullPath.substring(0, 7)=='/board/'||$route.fullPath.substring(0, 8)=='/random/'}" >
         <Nuxt />
       </v-container>
     </v-main>

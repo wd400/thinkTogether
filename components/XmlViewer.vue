@@ -58,7 +58,7 @@
 				
 				
 					<div id="outlineContainer"
-         style="z-index:1;position:absolute;overflow:hidden;width:160px;height:120px;background:transparent;border-style:solid;border-color:lightgray;">	</div>
+         style="z-index:1;position:absolute;overflow:hidden;width:160px;height:120px;background:white;border-style:solid;border-color:lightgray;">	</div>
 			
 				
 				

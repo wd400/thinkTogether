@@ -66,8 +66,8 @@
           
         >
          <v-list-item-content   @click="gotoBoard(item.boardid)">
-                  <v-list-item-title v-text="item.title"  ></v-list-item-title>
-                  <v-list-item-subtitle class="text--primary" v-text="cat2text[item.cat]"></v-list-item-subtitle>
+        <b>          <v-list-item-title v-text="item.title"  ></v-list-item-title></b>
+                  <v-list-item-subtitle class="text--primary" v-text="cat2text[item.cat] +' - '+$moment(item.lastmodif).fromNow()"></v-list-item-subtitle>
 {{item.description}}
 </v-list-item-content>
 

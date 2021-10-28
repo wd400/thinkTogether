@@ -14,16 +14,20 @@
 <v-col >
     <v-col align-self="stretch">
 
+
+
+
 <v-row align="center" :dense="true">
 <v-btn  icon
    @click="gotoUser()"  v-if="! owned && userid!=null" >
       <v-icon >mdi-account</v-icon>
          </v-btn>
-    <h3 v-if="loaded">{{cat2text[cat]}}</h3>
+         <h2>{{title}}</h2>
 </v-row>
-<h2>{{title}}</h2>
 <v-divider/>
-           <h4 style="white-space: pre-wrap;">{{description}} </h4>
+  <p v-if="loaded" > <b class="float-left">{{cat2text[cat] }} </b>  &nbsp; - {{ $moment(lastmodif).fromNow()}}</p>
+  
+           <span style="white-space: pre-wrap;">{{description}} </span>
      
      <!-- report board -->
      <v-btn x-small
@@ -102,6 +106,7 @@ this.boardId="random"
       showReport:false,
       gotoCell:{},
       loaded:false,
+      lastmodif:null,
       cat:null,
           cat2text:{
       0:this.$t('other'),
@@ -124,6 +129,7 @@ this.title=response.data.title;
 this.description=response.data.description;
 this.xml=response.data.xml;
 this.cat=response.data.cat;
+this.lastmodif=response.data.lastmodif;
 
 if (this.boardId=="random"){
   this.boardId=response.data.boardid

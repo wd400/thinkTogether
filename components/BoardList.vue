@@ -29,7 +29,7 @@
       <v-divider/>
 
  <v-list 
-       max-height="500" >
+       >
 
                 <v-list-item-group
         color="primary"
@@ -401,7 +401,7 @@ this.boards=response.data;
 }
 )
 .catch(error => {
- if(error.status==301){
+ if(error.response.status==301){
    this.$router.push('/user/me')
 } else {
 

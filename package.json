@@ -19,6 +19,7 @@
     "vuetify": "^2.5.5"
   },
   "devDependencies": {
+    "@nuxtjs/moment": "^1.6.1",
     "@nuxtjs/vuetify": "^1.12.1"
   }
 }

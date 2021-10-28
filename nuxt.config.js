@@ -56,6 +56,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/moment',
  //   '@nuxtjs/color-mode',
   //  ['@nuxtjs/vuetify', { iconfont: 'mdi' }]
   ],
