@@ -86,14 +86,31 @@
 
 				function selectOnly()
 				{
-					editor.graph.setCellsLocked(true)
+					editor.graph.setCellsDisconnectable(false)
+
+					editor.graph.setCellsMovable(true);
+			//		editor.graph.setCellsLocked(true)
 					editor.graph.setConnectable(false)
 					editor.graph.createEdges = false;
 				editor.graph.editEdges =false;;
 				editor.graph.setCellsDeletable(false)
-					editor.graph.editVertices = false;;
+				editor.graph.setCellsBendable(false)
+				editor.graph.setVertexLabelsMovable(false)
+		//			editor.graph.editVertices = false;;
+
 			//		editor.graph.cloneCells = false;;
+			editor.graph.setCellsEditable(false);
+			editor.graph.setCellsResizable(false);
+			editor.graph.setConnectableEdges(false)
+		editor.graph.setAllowDanglingEdges(false)
+
+		editor.graph.setSwimlaneNesting(false)
+	
+		
+	//	editor.graph.isLabelMovable=false
 				};
+
+				editor.graph.connectableEdges=true
 
 			
 				//change menu
