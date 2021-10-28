@@ -98,9 +98,9 @@
         <v-icon>mdi-menu</v-icon>
       </v-btn>
       -->
-    </v-app-bar>
-    <v-main>
-      <v-container>
+    </v-app-bar >
+    <v-main > 
+      <v-container  :class="{'mx-0':$route.fullPath.substring(0, 7)=='/board/'}" >
         <Nuxt />
       </v-container>
     </v-main>
@@ -224,11 +224,3 @@ this.$router.push('/register')
 }
 </script>
 
-
-<style>
-.container{
-     max-width: 95vw;
-     margin-top: 13px;
-     padding:0px;
-  }
-</style>

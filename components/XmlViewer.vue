@@ -365,5 +365,3 @@ this.stopAutoSave()
 }
 
 </script>
-<style lang="scss">
-</style>
