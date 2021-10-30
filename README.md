@@ -8,8 +8,6 @@
 
 ![Associated reddit thread](https://www.reddit.com/r/SideProject/comments/qizyc6/thinktogether_share_and_collaborate_on_your/ )
 
-
-<br>
 <br>
 
 # Quick notice
