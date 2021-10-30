@@ -4,10 +4,17 @@
 
       <v-card>
       <v-card-title class="headline">
-       <v-icon left large>mdi-thought-bubble</v-icon> 
+       
+       <v-img 
+  max-height="40"
+  max-width="40"
+  src="logo.png"
+></v-img>
+&nbsp;
      <h2>  thinkTogether </h2>
 
         </v-card-title>
+        <v-divider/>
                <v-card-subtitle>
         <h4>{{$t('app_description')}} </h4>
        </v-card-subtitle>
