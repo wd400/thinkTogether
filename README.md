@@ -2,7 +2,7 @@
 <br>
 
 ## 👉 https://wd400.github.io/thinkTogether/ 👈
-(down)
+(back online!)
 
 <br>
 
