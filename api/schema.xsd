@@ -1,0 +1,132 @@
+
+
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="mxCell">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element ref="mxGeometry" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute type="xs:float" name="parent" use="optional"/>
+      <xs:attribute type="xs:float" name="vertex" use="optional"/>
+      <xs:attribute type="xs:float" name="source" use="optional"/>
+      <xs:attribute type="xs:float" name="target" use="optional"/>
+      <xs:attribute type="xs:float" name="edge" use="optional"/>
+      <xs:attribute type="xs:string" name="style" use="optional"/>
+      <xs:attribute type="xs:float" name="connectable" use="optional"/>
+      <xs:attribute type="xs:float" name="collapsed" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mxGeometry">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element ref="mxRectangle" minOccurs="0"/>
+        <xs:element ref="mxPoint" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element ref="Array" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute type="xs:float" name="x" use="optional"/>
+      <xs:attribute type="xs:float" name="y" use="optional"/>
+      <xs:attribute type="xs:float" name="width" use="optional"/>
+      <xs:attribute type="xs:float" name="height" use="optional"/>
+      <xs:attribute type="xs:string" name="as" use="optional"/>
+      <xs:attribute type="xs:float" name="relative" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mxRectangle">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:float" name="x"/>
+          <xs:attribute type="xs:float" name="y"/>
+          <xs:attribute type="xs:float" name="width"/>
+          <xs:attribute type="xs:float" name="height"/>
+          <xs:attribute type="xs:string" name="as"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mxPoint">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:float" name="x" use="optional"/>
+          <xs:attribute type="xs:float" name="y" use="optional"/>
+          <xs:attribute type="xs:string" name="as" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Array">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="mxPoint" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="as" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Diagram">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="mxCell"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="label"/>
+      <xs:attribute type="xs:anyURI" name="href"/>
+      <xs:attribute type="xs:float" name="id"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Layer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="mxCell"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="label"/>
+      <xs:attribute type="xs:float" name="id"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Rect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="mxCell"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="label" use="optional"/>
+      <xs:attribute type="xs:float" name="id" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Connector">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="mxCell"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="label" use="optional"/>
+      <xs:attribute type="xs:float" name="id" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Container">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="mxCell"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="label" use="optional"/>
+      <xs:attribute type="xs:float" name="id" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="Diagram"/>
+        <xs:element ref="Layer"/>
+        <xs:element ref="Rect" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element ref="Connector"/>
+        <xs:element ref="Container"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mxGraphModel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="root"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+

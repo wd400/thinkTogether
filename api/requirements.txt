@@ -1,0 +1,5 @@
+gunicorn
+Flask
+lxml
+flask-cors
+psycopg2-binary
