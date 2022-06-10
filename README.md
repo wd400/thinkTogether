@@ -111,8 +111,3 @@ Please report issues or questions
 [here](https://github.com/smallwat3r/docker-nginx-gunicorn-flask-letsencrypt/issues).
 
 
-[![Buy me a coffee][buymeacoffee-shield]][buymeacoffee]
-
-
-[buymeacoffee-shield]: https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg
-[buymeacoffee]: https://www.buymeacoffee.com/smallwat3r
