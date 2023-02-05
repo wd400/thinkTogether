@@ -185,7 +185,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'https://ad90-81-64-42-202.eu.ngrok.io/tt/'
+    baseURL: 'https://724e-81-64-42-202.eu.ngrok.io/tt/'
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
