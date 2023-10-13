@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[20],{560:function(n,t,e){"use strict";e.r(t);var o={created:function(){this.$router.push("/board/random")}},r=e(77),component=Object(r.a)(o,(function(){return(0,this._self._c)("div")}),[],!1,null,null,null);t.default=component.exports}}]);
