@@ -185,7 +185,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: '‌https://dashing-poodle-supposedly.ngrok-free.app/tt/'
+    baseURL: 'https://dashing-poodle-supposedly.ngrok-free.app/tt/'
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
